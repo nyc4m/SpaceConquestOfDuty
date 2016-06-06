@@ -12,8 +12,10 @@ import iut.Objet;
  *
  * @author bapt
  */
-public class Bouclier extends Bonus{
+public class Bouclier extends iut.ObjetTouchable{
 
+    private int delai = 0;
+    private double vitesse = -0.5;
     
     public Bouclier(Game g, int x, int y) {
         
@@ -22,7 +24,9 @@ public class Bouclier extends Bonus{
 
     @Override
     public void effect(Objet o) {
-    
+        if(o.isFriend()){
+            this.game().remove(this);
+        }
     }
 
     @Override
@@ -33,6 +37,12 @@ public class Bouclier extends Bonus{
     @Override
     public boolean isEnnemy() {
         return false;
+    }
+    
+
+    @Override
+    public void move(long dt) {
+        this.moveX(vitesse*dt);
     }
     
     
