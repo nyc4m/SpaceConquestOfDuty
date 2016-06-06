@@ -44,7 +44,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
     }
 
     @Override
-    public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY
+    public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY)
     }
     
     /*public void setennemy();*/
