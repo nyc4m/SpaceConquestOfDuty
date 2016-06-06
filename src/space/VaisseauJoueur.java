@@ -15,18 +15,26 @@ import java.awt.event.KeyListener;
  * @author Florian
  */
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
-private boolean ennemy=true; 
+private boolean ennemy=true;
+private boolean bouclier=false;
     
     
     public VaisseauJoueur(Game g) {
         super(g, "vaisseau", 30, g.getHeight()/2-50);
     }
 
-    @Override
-    public void effect(Objet objet) {
-        if(objet.isFriend()){
+    
+    public void effect(Objet o) {
+        if(o.isFriend()){
             System.out.println("Bonus");
+            this.bouclier = true;
+            
         }
+    }
+    /**
+     * Ajoute un bouclier au vaiseau
+     */
+    public void ajouterBouclier(){
     }
 
     @Override

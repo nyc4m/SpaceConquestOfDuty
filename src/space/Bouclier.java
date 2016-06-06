@@ -12,9 +12,11 @@ import iut.Objet;
  *
  * @author bapt
  */
-public class Bouclier extends iut.ObjetTouchable{
+public class Bouclier extends Bonus{
 
+    
     public Bouclier(Game g, int x, int y) {
+        
         super(g, "shield", x, y);
     }
 
@@ -31,11 +33,6 @@ public class Bouclier extends iut.ObjetTouchable{
     @Override
     public boolean isEnnemy() {
         return false;
-    }
-
-    @Override
-    public void move(long dt) {
-        this.moveX(-0.05*dt);
     }
     
     
