@@ -56,7 +56,7 @@ public class GameInst extends Game{
 
     @Override
     protected void perdu() {
-        
+        System.out.println("vous avez perdu");
     }
 
     @Override

@@ -34,7 +34,7 @@ public class Meteor3 extends Meteor{
 
     @Override
     public void move(long l) {
-        this.moveX(-8);
+        this.move(-8,0);
     }
     
 }

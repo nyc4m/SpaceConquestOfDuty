@@ -15,7 +15,6 @@ import java.awt.event.KeyListener;
  * @author Florian
  */
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
-private boolean ennemy=true; 
     
     
     public VaisseauJoueur(Game g) {
@@ -25,7 +24,12 @@ private boolean ennemy=true;
     @Override
     public void effect(Objet objet) {
         if(this.collision(objet)){
-            System.out.println("J'ai touché un truc");
+            if(objet.isEnnemy()){
+                this.game().remove(this);
+            }
+            else if(objet.isFriend()){
+                System.out.println("J'ai heurté un truc cool");
+            }
         }
     }
 
@@ -36,12 +40,11 @@ private boolean ennemy=true;
 
     @Override
     public boolean isEnnemy() {
-        return ennemy;
+        return false;
     }
 
     @Override
     public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY
-       
     }
     
     /*public void setennemy();*/
@@ -57,9 +60,9 @@ private boolean ennemy=true;
         up=38; down = 40; left=37; right=39; 
         //deplacement de base haut/bas
         if(kC==up)
-            this.moveY(-15);
+            this.move(0,-15);
         if(kC==down)
-            this.moveY(15);
+            this.move(0,15);
         
         //deplacement gauche/droite optionnel
         /*
