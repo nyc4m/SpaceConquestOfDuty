@@ -14,7 +14,7 @@ import space.Tir;
  */
 public class TMissile extends Tir{
     
-    public TMissile(Game g, String nom, int x, int y) {
+    public TMissile(Game g, int x, int y) {
         super(g, "missile", x, y);
     }
     

@@ -55,14 +55,22 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
+        //gestion des déplacements
         int kC = e.getKeyCode();
-        int up, down, left, right;
-        up=38; down = 40; left=37; right=39; 
+        int up, down, left, right, space;
+        
+        up=38; down = 40; left=37; right=39; space=32; 
         //deplacement de base haut/bas
         if(kC==up)
             this.move(0,-15);
         if(kC==down)
             this.move(0,15);
+        
+        //gestion du tir
+        if(kC==32){
+            TLaser t = new TLaser(this.game(),this.getMiddleX(),this.getMiddleY());
+            this.game().add(t);
+        }
         
         //deplacement gauche/droite optionnel
         /*

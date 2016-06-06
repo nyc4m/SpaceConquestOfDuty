@@ -12,7 +12,7 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class Tir extends iut.ObjetTouchable{
+public abstract class Tir extends iut.ObjetTouchable{
 
     public Tir(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
@@ -20,6 +20,13 @@ public class Tir extends iut.ObjetTouchable{
 
     @Override
     public void effect(Objet objet) {
+        if(this.collision(objet)){
+            if(objet.isEnnemy()){
+                System.out.println("le laser a touché");
+                this.game().remove(objet);
+                this.game().remove(this);
+            }
+        }
     }
 
     @Override
@@ -34,6 +41,7 @@ public class Tir extends iut.ObjetTouchable{
 
     @Override
     public void move(long l) {
+        this.move(30, 0);
     }
     
 }

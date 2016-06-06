@@ -13,7 +13,7 @@ import iut.Game;
  */
 public class TLaser extends Tir{
     
-    public TLaser(Game g, String nom, int x, int y) {
+    public TLaser(Game g, int x, int y) {
         super(g, "laser", x, y);
     }
     
