@@ -7,29 +7,21 @@ package space;
 
 import iut.Game;
 import iut.Objet;
-import iut.ObjetTouchable;
 
 /**
  *
  * @author bapt
  */
-public class Bouclier extends iut.ObjetTouchable{
+public class BonusBouclier extends iut.ObjetTouchable{
 
-    private int delai = 0;
-    private double vitesse = -0.5;
     
-    public Bouclier(GameInst g, int x, int y) {
-        
-        super(g, "shield", x, y);
+    public BonusBouclier(GameInst game) {
+        super(game, "vaisseau_shield", game.getPosXvaisseau(), game.getPosYvaisseau());
     }
 
     @Override
     public void effect(Objet o) {
-        if(o.isFriend()){
-            BonusBouclier b = new BonusBouclier((GameInst)this.game());
-            this.game().add(b);
-            this.game().remove(this);
-        }
+        
     }
 
     @Override
@@ -41,11 +33,10 @@ public class Bouclier extends iut.ObjetTouchable{
     public boolean isEnnemy() {
         return false;
     }
-    
 
     @Override
     public void move(long dt) {
-        this.moveX(vitesse*dt);
+        
     }
     
     

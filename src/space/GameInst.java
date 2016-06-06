@@ -21,6 +21,9 @@ import javax.imageio.ImageIO;
  */
 public class GameInst extends Game{
 
+    private int posXvaisseau;
+    private int posYvaisseau;
+    
     public GameInst() {
         super(1024, 768, "Space");
     }
@@ -29,6 +32,8 @@ public class GameInst extends Game{
     protected void createObjects() {
         //ajout vaisseau
         VaisseauJoueur v = new VaisseauJoueur(this);
+        this.posXvaisseau = v.getMiddleX();
+        this.posYvaisseau = v.getMiddleY();
         this.addKeyInteractiveObject(v);
         this.add(v);
         //test ajout météor
@@ -67,5 +72,15 @@ public class GameInst extends Game{
     protected void gagne() {
       
     }
+
+    public int getPosXvaisseau() {
+        return posXvaisseau;
+    }
+
+    public int getPosYvaisseau() {
+        return posYvaisseau;
+    }
+    
+    
     
 }

@@ -29,6 +29,12 @@ private boolean bouclier=false;
             System.out.println("Bonus");
             this.bouclier = true;
             
+        }else{
+            if(this.bouclier){
+                this.bouclier = false;
+            }else{
+                System.out.println("Ship damaged BIATCH !!");
+            }
         }
     }
     /**
