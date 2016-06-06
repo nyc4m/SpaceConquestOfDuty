@@ -18,7 +18,7 @@ public class BonusBouclier extends iut.ObjetTouchable{
 
     
     public BonusBouclier(GameInst game) {
-        super(game, "vaisseau_shield", game.getVaisseau().getMiddleX(), game.getVaisseau().getMiddleY());
+        super(game, "vaisseau_shield", game.getVaisseau().getLeft(), game.getVaisseau().getTop());
     }
 
     @Override

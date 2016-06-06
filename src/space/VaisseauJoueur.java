@@ -82,17 +82,11 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         if (kC == down) {
             this.moveY(15);
             if (bouclier != null) {
-                this.bouclier.moveX(15);
+                this.bouclier.moveY(15);
             }
         }
 
-        //deplacement gauche/droite optionnel
-        /*
-        if(kC==right)
-            this.moveX(10);
-        if(kC==left)
-            this.moveX(-10);
-         */
+        this.game().repaint();
     }
 
     @Override
