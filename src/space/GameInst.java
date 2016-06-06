@@ -5,6 +5,8 @@
  */
 package space;
 
+import Ennemis.Meteor1;
+import Ennemis.Meteor2;
 import iut.Game;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -44,7 +46,6 @@ public class GameInst extends Game{
 
     @Override
     protected void drawBackground(Graphics g) {
-        g.setColor(Color.white);
         try {
             Image img = ImageIO.read(new File("Images/fond.png"));
             g.drawImage(img, this.getX(), this.getY(), this.getWidth(), this.getHeight(), Color.white, this);
@@ -61,7 +62,7 @@ public class GameInst extends Game{
 
     @Override
     protected void gagne() {
-      
+        
     }
     
 }

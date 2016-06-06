@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package space;
+package Ennemis;
 
 import iut.Game;
 import iut.Objet;
@@ -12,30 +12,29 @@ import iut.Objet;
  *
  * @author Florian
  */
-public abstract class Tir extends iut.ObjetTouchable{
+public class Meteor2 extends Meteor{
 
-    public Tir(Game g, String nom, int x, int y) {
-        super(g, nom, x, y);
+    public Meteor2(Game g, int x, int y) {
+        super(g, "meteor2", x, y);
     }
 
     @Override
     public void effect(Objet objet) {
-        
     }
 
     @Override
     public boolean isFriend() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnnemy() {
         return false;
     }
 
     @Override
+    public boolean isEnnemy() {
+        return true;
+    }
+
+    @Override
     public void move(long l) {
-        this.move(30, 0);
+        this.move(-10,0);
     }
     
 }

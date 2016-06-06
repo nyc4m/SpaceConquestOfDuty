@@ -5,6 +5,8 @@
  */
 package space;
 
+import TirVaisseau.TLaser;
+import TirVaisseau.TMissile;
 import iut.Game;
 import iut.Objet;
 import java.awt.event.KeyEvent;
@@ -61,9 +63,9 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
         up=38; down = 40; left=37; right=39; space=32; m=77; 
         //deplacement de base haut/bas
         if(kC==up && this.getTop() > 0)
-            this.move(0,-15);
+            this.move(0,-20);
         if(kC==down && this.getBottom() < this.game().height())
-            this.move(0,15);
+            this.move(0,20);
         
         //gestion du tir
         if(kC==space){

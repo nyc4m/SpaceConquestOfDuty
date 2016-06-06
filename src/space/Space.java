@@ -17,7 +17,6 @@ public class Space {
     public static void main(String[] args) {
         GameInst ng = new GameInst();
         ng.run();
-        
     }
     
 }

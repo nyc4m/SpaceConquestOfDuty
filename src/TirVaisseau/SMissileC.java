@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package space;
+package TirVaisseau;
 
 import iut.Game;
 import iut.Objet;
@@ -12,17 +12,17 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class SMissileH extends Tir{
+public class SMissileC extends Tir{
     
-    public SMissileH(Game g, int x, int y) {
-        super(g,"SMissileH", x, y);
+    public SMissileC(Game g, int x, int y) {
+        super(g, "SMissileC", x, y);
     }
-
+    
     @Override
     public void move(long l) {
-        this.move(30, -30);
+        this.move(30, 0);
     }
-
+    
     @Override
     public void effect(Objet objet) {
         if(this.collision(objet)){
@@ -32,7 +32,4 @@ public class SMissileH extends Tir{
             }
         }
     }
-    
-    
-    
 }
