@@ -24,6 +24,9 @@ private boolean ennemy=true;
 
     @Override
     public void effect(Objet objet) {
+        if(objet.isFriend()){
+            System.out.println("Bonus");
+        }
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Bouclier extends iut.ObjetTouchable{
 
     @Override
     public void effect(Objet o) {
-        
+    
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Bouclier extends iut.ObjetTouchable{
 
     @Override
     public void move(long dt) {
-        this.moveX(-10);
+        this.moveX(-0.05*dt);
     }
     
     
