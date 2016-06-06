@@ -24,6 +24,9 @@ private boolean ennemy=true;
 
     @Override
     public void effect(Objet objet) {
+        if(this.collision(objet)){
+            System.out.println("J'ai touché un truc");
+        }
     }
 
     @Override
@@ -70,9 +73,5 @@ private boolean ennemy=true;
     @Override
     public void keyReleased(KeyEvent e) {
     }
-    
-    /*public object testCollision(){
-        
-    }*/
     
 }
