@@ -16,21 +16,28 @@ import java.awt.event.KeyListener;
  *
  * @author Florian
  */
-public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
-    
-    
+public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
+
+    private boolean ennemy = true;
+    private BonusBouclier bouclier = null;
+
     public VaisseauJoueur(Game g) {
-        super(g, "vaisseau", 30, g.getHeight()/2-50);
+        super(g, "vaisseau", 30, g.getHeight() / 2 - 50);
     }
 
-    @Override
-    public void effect(Objet objet) {
-        if(this.collision(objet)){
-            if(objet.isEnnemy()){
-                this.game().remove(this);
+    public void effect(Objet o) {
+        if (o.isFriend()) {
+            System.out.println("Bonus");
+            this.bouclier = new BonusBouclier((GameInst) this.game());
+            this.game().add(this.bouclier);
+
+        } else if (o.isEnnemy()) {
+            if (this.bouclier != null) {
+                this.game().remove(this.bouclier);
+                this.bouclier = null;
             }
-            else if(objet.isFriend()){
-            }
+        } else {
+            System.out.println("Ship damaged BIATCH !!");
         }
     }
 
@@ -45,11 +52,11 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
     }
 
     @Override
-    public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY)
-    }
-    
-    /*public void setennemy();*/
+    public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY
 
+    }
+
+    /*public void setennemy();*/
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -81,5 +88,4 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
     }
-    
 }

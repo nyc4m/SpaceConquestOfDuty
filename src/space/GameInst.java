@@ -5,8 +5,7 @@
  */
 package space;
 
-import Ennemis.Meteor1;
-import Ennemis.Meteor2;
+import Ennemis.*;
 import iut.Game;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -23,6 +22,8 @@ import javax.imageio.ImageIO;
  */
 public class GameInst extends Game{
 
+    VaisseauJoueur vaisseau;
+    
     public GameInst() {
         super(1024, 768, "Space");
     }
@@ -31,17 +32,23 @@ public class GameInst extends Game{
     protected void createObjects() {
         //ajout vaisseau
         VaisseauJoueur v = new VaisseauJoueur(this);
+        this.vaisseau = v;
         this.addKeyInteractiveObject(v);
         this.add(v);
         //test ajout météor
-        /*Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2);
-        this.add(m3);*/
-        
+
+       
+        Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2);
+        this.add(m3);
+
         Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()-100);
         this.add(m2);
         
-        Meteor1 m1 = new Meteor1(this,this.getWidth()-50, this.getHeight()/2);
+        Meteor1 m1 = new Meteor1(this,this.getWidth()-50, this.getHeight()/3);
         this.add(m1);
+        
+        Bouclier b = new Bouclier(this, this.getWidth()-60, this.getHeight()/2);
+        this.add(b);
     }
 
     @Override
@@ -64,5 +71,11 @@ public class GameInst extends Game{
     protected void gagne() {
         
     }
+
+    public VaisseauJoueur getVaisseau(){
+        return this.vaisseau;
+    }
+    
+    
     
 }
