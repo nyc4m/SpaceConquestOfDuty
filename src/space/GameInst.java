@@ -6,6 +6,7 @@
 package space;
 
 import Ennemis.*;
+import IHM.GagneF;
 import iut.Game;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -69,7 +70,8 @@ public class GameInst extends Game{
 
     @Override
     protected void gagne() {
-        
+        GagneF f = new GagneF();
+        f.setVisible(true);
     }
 
     public VaisseauJoueur getVaisseau(){
