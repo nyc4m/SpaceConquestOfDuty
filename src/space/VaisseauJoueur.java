@@ -61,9 +61,9 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
         
         up=38; down = 40; left=37; right=39; space=32; 
         //deplacement de base haut/bas
-        if(kC==up)
+        if(kC==up && this.getTop() > 0)
             this.move(0,-15);
-        if(kC==down)
+        if(kC==down && this.getBottom() < this.game().height())
             this.move(0,15);
         
         //gestion du tir
