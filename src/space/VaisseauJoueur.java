@@ -14,33 +14,33 @@ import java.awt.event.KeyListener;
  *
  * @author Florian
  */
-public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
-private boolean ennemy=true;
-private boolean bouclier=false;
-    
-    
+public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
+
+    private boolean ennemy = true;
+    private BonusBouclier bouclier = null;
+
     public VaisseauJoueur(Game g) {
-        super(g, "vaisseau", 30, g.getHeight()/2-50);
+        super(g, "vaisseau", 30, g.getHeight() / 2 - 50);
     }
 
-    
     public void effect(Objet o) {
-        if(o.isFriend()){
+        if (o.isFriend()) {
             System.out.println("Bonus");
-            this.bouclier = true;
-            
-        }else{
-            if(this.bouclier){
-                this.bouclier = false;
-            }else{
-                System.out.println("Ship damaged BIATCH !!");
-            }
+            this.bouclier = new BonusBouclier((GameInst) this.game());
+            this.game().add(this.bouclier);
+
+        } else if (this.bouclier != null) {
+            this.game().remove(this.bouclier);
+            this.bouclier = null;
+        } else {
+            System.out.println("Ship damaged BIATCH !!");
         }
     }
+
     /**
      * Ajoute un bouclier au vaiseau
      */
-    public void ajouterBouclier(){
+    public void ajouterBouclier() {
     }
 
     @Override
@@ -55,11 +55,10 @@ private boolean bouclier=false;
 
     @Override
     public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY
-       
-    }
-    
-    /*public void setennemy();*/
 
+    }
+
+    /*public void setennemy();*/
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -68,28 +67,39 @@ private boolean bouclier=false;
     public void keyPressed(KeyEvent e) {
         int kC = e.getKeyCode();
         int up, down, left, right;
-        up=38; down = 40; left=37; right=39; 
+        up = 38;
+        down = 40;
+        left = 37;
+        right = 39;
         //deplacement de base haut/bas
-        if(kC==up)
+        if (kC == up) {
             this.moveY(-15);
-        if(kC==down)
+            if (this.bouclier != null) {
+                this.bouclier.moveY(-15);
+            }
+        }
+
+        if (kC == down) {
             this.moveY(15);
-        
+            if (bouclier != null) {
+                this.bouclier.moveX(15);
+            }
+        }
+
         //deplacement gauche/droite optionnel
         /*
         if(kC==right)
             this.moveX(10);
         if(kC==left)
             this.moveX(-10);
-        */
+         */
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
     }
-    
+
     /*public object testCollision(){
         
     }*/
-    
 }

@@ -45,8 +45,11 @@ public class Bouclier extends iut.ObjetTouchable{
 
     @Override
     public void move(long dt) {
-        this.moveX(vitesse*dt);
+         this.moveX(vitesse*dt);
     }
+    
+
+    
     
     
 }

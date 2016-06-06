@@ -7,6 +7,8 @@ package space;
 
 import iut.Game;
 import iut.Objet;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  *
@@ -16,7 +18,7 @@ public class BonusBouclier extends iut.ObjetTouchable{
 
     
     public BonusBouclier(GameInst game) {
-        super(game, "vaisseau_shield", game.getPosXvaisseau(), game.getPosYvaisseau());
+        super(game, "vaisseau_shield", game.getVaisseau().getMiddleX(), game.getVaisseau().getMiddleY());
     }
 
     @Override
@@ -37,6 +39,14 @@ public class BonusBouclier extends iut.ObjetTouchable{
     @Override
     public void move(long dt) {
         
+    }
+    
+    public void moveX(double dx) {
+        super.moveX(dx); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void moveY(double dy){
+        super.moveY(dy);
     }
     
     
