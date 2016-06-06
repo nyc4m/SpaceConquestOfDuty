@@ -29,9 +29,11 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             this.bouclier = new BonusBouclier((GameInst) this.game());
             this.game().add(this.bouclier);
 
-        } else if (this.bouclier != null) {
-            this.game().remove(this.bouclier);
-            this.bouclier = null;
+        } else if (o.isEnnemy()) {
+            if (this.bouclier != null) {
+                this.game().remove(this.bouclier);
+                this.bouclier = null;
+            }
         } else {
             System.out.println("Ship damaged BIATCH !!");
         }
@@ -86,7 +88,6 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             }
         }
 
-        this.game().repaint();
     }
 
     @Override

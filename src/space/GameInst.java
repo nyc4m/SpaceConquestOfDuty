@@ -36,14 +36,14 @@ public class GameInst extends Game{
         this.add(v);
         //test ajout météor
         
-        /**Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2);
+        Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2);
         this.add(m3);
         
         Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2);
         this.add(m2);
         
-        Meteor1 m1 = new Meteor1(this,this.getWidth()-50, this.getHeight()/2);
-        this.add(m1);*/
+        Meteor1 m1 = new Meteor1(this,this.getWidth()-50, this.getHeight()/3);
+        this.add(m1);
         
         Bouclier b = new Bouclier(this, this.getWidth()-60, this.getHeight()/2);
         this.add(b);
