@@ -12,10 +12,15 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class TLaser extends Tir{
+public class SMissileH extends Tir{
     
-    public TLaser(Game g, int x, int y) {
-        super(g, "laser", x, y);
+    public SMissileH(Game g, int x, int y) {
+        super(g,"SMissileH", x, y);
+    }
+
+    @Override
+    public void move(long l) {
+        this.move(30, -30);
     }
 
     @Override

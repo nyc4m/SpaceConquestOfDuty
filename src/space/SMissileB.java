@@ -12,12 +12,17 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class TLaser extends Tir{
+public class SMissileB extends Tir{
     
-    public TLaser(Game g, int x, int y) {
-        super(g, "laser", x, y);
+    public SMissileB(Game g, int x, int y) {
+        super(g,"SMissileB", x, y);
     }
-
+    
+    @Override
+    public void move(long l) {
+        this.move(30, 30);
+    }
+    
     @Override
     public void effect(Objet objet) {
         if(this.collision(objet)){
@@ -27,7 +32,4 @@ public class TLaser extends Tir{
             }
         }
     }
-    
-    
-    
 }

@@ -28,7 +28,6 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
                 this.game().remove(this);
             }
             else if(objet.isFriend()){
-                System.out.println("J'ai heurté un truc cool");
             }
         }
     }
@@ -57,9 +56,9 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
     public void keyPressed(KeyEvent e) {
         //gestion des déplacements
         int kC = e.getKeyCode();
-        int up, down, left, right, space;
+        int up, down, left, right, space, m;
         
-        up=38; down = 40; left=37; right=39; space=32; 
+        up=38; down = 40; left=37; right=39; space=32; m=77; 
         //deplacement de base haut/bas
         if(kC==up && this.getTop() > 0)
             this.move(0,-15);
@@ -67,9 +66,13 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
             this.move(0,15);
         
         //gestion du tir
-        if(kC==32){
-            TLaser t = new TLaser(this.game(),this.getMiddleX(),this.getMiddleY());
+        if(kC==space){
+            TLaser t = new TLaser(this.game(),this.getMiddleX()+50,this.getMiddleY());
             this.game().add(t);
+        }
+        if(kC==m){
+            TMissile tM = new TMissile(this.game(),this.getMiddleX()+50,this.getMiddleY());
+            this.game().add(tM);
         }
         
         //deplacement gauche/droite optionnel
