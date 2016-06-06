@@ -74,14 +74,6 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener{
             TMissile tM = new TMissile(this.game(),this.getMiddleX()+50,this.getMiddleY());
             this.game().add(tM);
         }
-        
-        //deplacement gauche/droite optionnel
-        /*
-        if(kC==right)
-            this.moveX(10);
-        if(kC==left)
-            this.moveX(-10);
-        */
     }
 
     @Override
