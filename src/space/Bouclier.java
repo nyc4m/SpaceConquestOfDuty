@@ -20,22 +20,22 @@ public class Bouclier extends iut.ObjetTouchable{
 
     @Override
     public void effect(Objet o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public boolean isFriend() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isEnnemy() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
     @Override
     public void move(long dt) {
-        this.moveX(-50);
+        this.moveX(-10);
     }
     
     
