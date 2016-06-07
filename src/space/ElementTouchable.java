@@ -13,6 +13,8 @@ import iut.Objet;
  * @author bapt
  */
 public class ElementTouchable extends iut.ObjetTouchable{
+    
+    private int type;
 
     public ElementTouchable(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
