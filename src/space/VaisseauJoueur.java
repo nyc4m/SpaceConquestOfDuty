@@ -18,12 +18,12 @@ import java.awt.event.KeyListener;
  */
 public class VaisseauJoueur extends ElementTouchable implements KeyListener {
 
-    private boolean ennemy = true;
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
         super(g, sprite, x, y);
     }
 
+    @Override
     public void effect(Objet o) {
         if (o.isFriend()) {
             System.out.println("Bouclier");

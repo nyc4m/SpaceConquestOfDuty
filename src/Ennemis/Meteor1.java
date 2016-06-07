@@ -13,9 +13,13 @@ import iut.Objet;
  * @author Florian
  */
 public class Meteor1 extends Meteor{
+    int dirX;
+    int dirY;
 
-    public Meteor1(Game g, int x, int y) {
+    public Meteor1(Game g, int x, int y, int _dirX, int _dirY) {
         super(g, "meteor1", x, y);
+        this.dirX = _dirX;
+        this.dirY = _dirY;
     }
 
     @Override
@@ -34,7 +38,7 @@ public class Meteor1 extends Meteor{
 
     @Override
     public void move(long l) {
-        this.move(-15,0);
+        this.move(this.dirX,this.dirY);
     }
     
 }
