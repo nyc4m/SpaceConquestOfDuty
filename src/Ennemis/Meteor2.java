@@ -13,13 +13,25 @@ import iut.Objet;
  * @author Florian
  */
 public class Meteor2 extends Meteor{
+    int dirX;
+    int dirY;
 
-    public Meteor2(Game g, int x, int y) {
+    public Meteor2(Game g, int x, int y, int _dirX, int _dirY) {
         super(g, "meteor2", x, y);
+        this.dirX = _dirX;
+        this.dirY = _dirY;
     }
 
     @Override
     public void effect(Objet objet) {
+        if(this.collision(objet)){
+            if(objet.isFriend()){
+                Meteor1 m1 = new Meteor1(this.game(), this.getMiddleX(),this.getMiddleY(),-10,-10);
+                Meteor1 m2 = new Meteor1(this.game(), this.getMiddleX(),this.getMiddleY(),-10,10);
+                this.game().add(m1);
+                this.game().add(m2);
+            }
+        }
     }
 
     @Override
@@ -34,7 +46,7 @@ public class Meteor2 extends Meteor{
 
     @Override
     public void move(long l) {
-        this.move(-10,0);
+        this.move(this.dirX,this.dirY);
     }
     
 }

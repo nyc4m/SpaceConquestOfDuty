@@ -5,9 +5,7 @@
  */
 package space;
 
-import iut.Game;
 import iut.Objet;
-import iut.ObjetTouchable;
 
 /**
  *
@@ -15,8 +13,8 @@ import iut.ObjetTouchable;
  */
 public class Bouclier extends ElementTouchable{
 
-    private int delai = 0;
-    private double vitesse = -0.5;
+    private final int delai = 0;
+    private final double vitesse = -0.5;
     
     public Bouclier(GameInst g, int x, int y) {
         
