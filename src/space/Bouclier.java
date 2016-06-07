@@ -13,7 +13,7 @@ import iut.ObjetTouchable;
  *
  * @author bapt
  */
-public class Bouclier extends iut.ObjetTouchable{
+public class Bouclier extends ElementTouchable{
 
     private int delai = 0;
     private double vitesse = -0.5;
@@ -36,7 +36,7 @@ public class Bouclier extends iut.ObjetTouchable{
             VaisseauProtege v = new VaisseauProtege(game, "vaisseau_shield", game.getVaisseau().getLeft(), game.getVaisseau().getBottom());
             game.remove(this);
             game.removeKeyListener(game.getVaisseau());
-            game.setVaisseau(v);
+            game.setVaisseau(v); 
             game.add(v);
             game.addKeyListener(v);
     }

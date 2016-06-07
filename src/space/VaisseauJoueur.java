@@ -16,7 +16,7 @@ import java.awt.event.KeyListener;
  *
  * @author Florian
  */
-public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
+public class VaisseauJoueur extends ElementTouchable implements KeyListener {
 
     private boolean ennemy = true;
 
