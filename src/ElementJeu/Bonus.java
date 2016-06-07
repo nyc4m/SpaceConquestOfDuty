@@ -14,7 +14,7 @@ import iut.Objet;
  */
 public class Bonus extends iut.ObjetTouchable {
 
-    private double vitesse = 0.2;
+    private double vitesse = -0.2;
 
     public Bonus(Game g, String nom, int x, int y) {
         super(g, nom, x, y);

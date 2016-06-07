@@ -14,10 +14,7 @@ import space.VaisseauProtege;
  * @author bapt
  */
 public class Bouclier extends Bonus {
-
-    private final int delai = 0;
-    private final double vitesse = -0.5;
-
+    
     public Bouclier(GameInst g, int x, int y) {
 
         super(g, "shield", x, y);
@@ -35,7 +32,7 @@ public class Bouclier extends Bonus {
 
     @Override
     public void move(long dt) {
-        this.moveX(vitesse * dt);
+        this.moveX(this.getVitesse() * dt);
     }
 
     @Override
