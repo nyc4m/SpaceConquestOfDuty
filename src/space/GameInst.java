@@ -6,6 +6,7 @@
 package space;
 
 import ElementJeu.Bouclier;
+import ElementJeu.Missile;
 import Ennemis.*;
 import IHM.GagneF;
 import iut.Game;
@@ -49,8 +50,11 @@ public class GameInst extends Game{
         Meteor1 m1 = new Meteor1(this,this.getWidth()-50, this.getHeight()/3,-10,0);
         this.add(m1);
         
-        Bouclier b = new Bouclier(this, this.getWidth()-60, this.getHeight()/2);
+        Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
         this.add(b);
+        
+        Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
+        this.add(m);
         
     }
 
