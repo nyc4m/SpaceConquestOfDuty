@@ -21,8 +21,8 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     private boolean ennemy = true;
     private BonusBouclier bouclier = null;
 
-    public VaisseauJoueur(Game g) {
-        super(g, "vaisseau", 30, g.getHeight() / 2 - 50);
+    public VaisseauJoueur(Game g, String sprite) {
+        super(g, sprite, 30, g.getHeight() / 2 - 50);
     }
 
     public void effect(Objet o) {
