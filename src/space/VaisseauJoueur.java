@@ -79,4 +79,9 @@ public class VaisseauJoueur extends ElementTouchable implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
     }
+
+    @Override
+    public int getType() {
+        return 111;
+    }
 }

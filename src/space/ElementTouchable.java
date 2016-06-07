@@ -12,14 +12,16 @@ import iut.Objet;
  *
  * @author bapt
  */
-public class ElementTouchable extends iut.ObjetTouchable{
+public abstract class ElementTouchable extends iut.ObjetTouchable{
     
     private int type;
 
     public ElementTouchable(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
-
+    
+    public abstract int getType();
+    
     @Override
     public void effect(Objet o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

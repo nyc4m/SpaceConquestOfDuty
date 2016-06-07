@@ -24,15 +24,15 @@ public class VaisseauProtege extends VaisseauJoueur implements KeyListener{
     @Override
     public void effect(Objet o) {
         if(o.isEnnemy()){
-            GameInst game = (GameInst)this.game();
-            VaisseauJoueur v = new VaisseauJoueur(game, "vaisseau", this.getLeft(), this.getBottom());
+            //GameInst game = (GameInst)this.game();
+            VaisseauJoueur v = new VaisseauJoueur(this.game(), "vaisseau", this.getLeft(), this.getBottom()-87);
             
-            game.remove(this);
-            game.removeKeyListener(this);
+            this.game().remove(this);
+            this.game().removeKeyListener(this);
             
-            game.add(v);
-            game.addKeyListener(v);
-            game.add(v);
+            this.game().add(v);
+            this.game().addKeyListener(v);
+            this.game().add(v);
         }
     }
     

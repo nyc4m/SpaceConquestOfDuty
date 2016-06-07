@@ -48,5 +48,10 @@ public class Meteor3 extends Meteor{
     public void move(long l) {
         this.move(this.dirX,this.dirY);
     }
+
+    @Override
+    public int getType() {
+        return 3;
+    }
     
 }

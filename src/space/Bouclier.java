@@ -33,7 +33,7 @@ public class Bouclier extends ElementTouchable{
             game.remove(game.getVaisseau());
             VaisseauProtege v = new VaisseauProtege(game, "vaisseau_shield", game.getVaisseau().getLeft(), game.getVaisseau().getBottom());
             game.remove(this);
-            game.removeKeyListener(game.getVaisseau());
+            game.remove(game.getVaisseau());
             game.setVaisseau(v); 
             game.add(v);
             game.addKeyListener(v);
@@ -54,9 +54,10 @@ public class Bouclier extends ElementTouchable{
     public void move(long dt) {
          this.moveX(vitesse*dt);
     }
-    
 
-    
-    
+    @Override
+    public int getType() {
+        return 222;
+    }
     
 }

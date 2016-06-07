@@ -6,12 +6,13 @@
 package Ennemis;
 
 import iut.Game;
+import space.ElementTouchable;
 
 /**
  *
  * @author Florian
  */
-public abstract class Meteor extends iut.ObjetTouchable{
+public abstract class Meteor extends ElementTouchable{
     public Meteor(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
     }

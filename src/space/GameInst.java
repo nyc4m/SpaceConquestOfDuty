@@ -50,6 +50,7 @@ public class GameInst extends Game{
         
         Bouclier b = new Bouclier(this, this.getWidth()-60, this.getHeight()/2);
         this.add(b);
+        
     }
 
     @Override
