@@ -33,7 +33,7 @@ public class Bouclier extends iut.ObjetTouchable{
     public void ajouterBouclier(){
         GameInst game = (GameInst)this.game();
             game.remove(game.getVaisseau());
-            VaisseauProtege v = new VaisseauProtege(game, "vaisseau_shield", game.getVaisseau().getLeft(), game.getVaisseau().getBottom());
+            VaisseauProtege v = new VaisseauProtege(game, "vaisseau_shield", game.getVaisseau().getLeft(), game.getVaisseau().getBottom()-87);
             game.remove(this);
             game.remove(game.getVaisseau());
             game.setVaisseau(v); 
