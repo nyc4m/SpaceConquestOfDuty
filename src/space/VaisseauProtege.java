@@ -6,6 +6,7 @@
 package space;
 
 import iut.Game;
+import iut.Objet;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -15,8 +16,24 @@ import java.awt.event.KeyListener;
  */
 public class VaisseauProtege extends VaisseauJoueur implements KeyListener{
     
-    public VaisseauProtege(Game g, String sprite) {
-        super(g, sprite);
+    public VaisseauProtege(Game g, String sprite, int x, int y) {
+        super(g, sprite, x, y);
+    }
+    
+
+    @Override
+    public void effect(Objet o) {
+        if(o.isEnnemy()){
+            GameInst game = (GameInst)this.game();
+            VaisseauJoueur v = new VaisseauJoueur(game, "vaisseau", this.getLeft(), this.getBottom());
+            
+            game.remove(this);
+            game.removeKeyListener(this);
+            
+            game.add(v);
+            game.addKeyListener(v);
+            game.add(v);
+        }
     }
     
 

@@ -32,7 +32,7 @@ public class GameInst extends Game{
     @Override
     protected void createObjects() {
         //ajout vaisseau
-        VaisseauJoueur v = new VaisseauJoueur(this, "vaisseau");
+        VaisseauJoueur v = new VaisseauJoueur(this, "vaisseau", 30, this.height()/2);
         this.vaisseau = v;
         this.addKeyInteractiveObject(v);
         this.add(v);
