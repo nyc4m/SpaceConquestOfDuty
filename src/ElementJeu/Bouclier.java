@@ -13,7 +13,7 @@ import space.VaisseauProtege;
  *
  * @author bapt
  */
-public class Bouclier extends iut.ObjetTouchable {
+public class Bouclier extends Bonus {
 
     private final int delai = 0;
     private final double vitesse = -0.5;
@@ -41,13 +41,6 @@ public class Bouclier extends iut.ObjetTouchable {
     @Override
     public String toString() {
         return "B";
-    }
-
-    @Override
-    public void effect(Objet o) {
-        if(o.isFriend()){
-            this.game().remove(this);
-        }
     }
 
 }

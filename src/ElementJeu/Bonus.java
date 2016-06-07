@@ -13,7 +13,7 @@ import iut.Objet;
  * @author bapt
  */
 public class Bonus extends iut.ObjetTouchable {
-    
+
     private double vitesse = 0.2;
 
     public Bonus(Game g, String nom, int x, int y) {
@@ -22,13 +22,25 @@ public class Bonus extends iut.ObjetTouchable {
 
     @Override
     public void effect(Objet o) {
-        this.game().remove(this);
+        if (o.isFriend()) {
+            switch (o.toString()) {
+                case "B":
+                    System.out.println("Collision avec bouclier");
+                    break;
+                case "M":
+                    System.out.println("Collision avec Missile");
+                    break;
+                default:
+                    this.game().remove(this);
+                    break;
+            }
+        }
     }
 
     @Override
     public boolean isFriend() {
         return true;
-                
+
     }
 
     @Override
@@ -38,13 +50,11 @@ public class Bonus extends iut.ObjetTouchable {
 
     @Override
     public void move(long dt) {
-        this.moveX(vitesse*dt);
+        this.moveX(vitesse * dt);
     }
 
     public double getVitesse() {
         return vitesse;
     }
-    
-    
 
 }
