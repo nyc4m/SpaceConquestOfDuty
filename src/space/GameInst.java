@@ -78,6 +78,10 @@ public class GameInst extends Game{
         return this.vaisseau;
     }
     
+    public void setVaisseau(VaisseauJoueur v){
+        this.vaisseau = v;
+    }
+    
     
     
 }

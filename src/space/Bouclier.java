@@ -36,6 +36,7 @@ public class Bouclier extends iut.ObjetTouchable{
             VaisseauProtege v = new VaisseauProtege(game, "vaisseau_shield");
             game.remove(this);
             game.removeKeyListener(game.getVaisseau());
+            game.setVaisseau(v);
             game.add(v);
             game.addKeyListener(v);
     }
