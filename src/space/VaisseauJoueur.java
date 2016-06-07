@@ -26,11 +26,21 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     @Override
     public void effect(Objet o) {
         if (o.isFriend()) {
-            System.out.println("Bouclier");
-            System.out.println(o.toString());
+            if(o.toString().equals("B")){
+                System.out.println("Bouclier");
+                this.ajouterBouclier();
+            }
         } else {
             System.out.println("Ship damaged BIATCH !!");
         }
+    }
+    
+    public void ajouterBouclier(){
+        this.game().remove(this);
+        this.game().removeKeyListener(this);
+        VaisseauProtege v = new VaisseauProtege(this.game(), "vaisseau_shield", this.getLeft(), this.getBottom()-87);
+        this.game().add(v);
+        this.game().addKeyListener(v);
     }
 
     @Override
