@@ -38,7 +38,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     public void ajouterBouclier(){
         this.game().remove(this);
         this.game().removeKeyListener(this);
-        VaisseauProtege v = new VaisseauProtege(this.game(), "vaisseau_shield", this.getMiddleX(), this.getMiddleY()-87);
+        VaisseauProtege v = new VaisseauProtege(this.game(), "vaisseau_shield", this.getLeft(), this.getBottom()-87);
         this.game().add(v);
         this.game().addKeyListener(v);
     }
