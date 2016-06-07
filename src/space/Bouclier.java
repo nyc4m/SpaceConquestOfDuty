@@ -26,9 +26,11 @@ public class Bouclier extends iut.ObjetTouchable{
     @Override
     public void effect(Objet o) {
         if(o.isFriend()){
-            BonusBouclier b = new BonusBouclier((GameInst)this.game());
-            this.game().add(b);
-            this.game().remove(this);
+            GameInst game = (GameInst)this.game();
+            game.remove(game.getVaisseau());
+            VaisseauProtege v = new VaisseauProtege(game, "vaisseau_shield");
+            game.remove(this);
+            game.add(v);
         }
     }
 

@@ -6,6 +6,7 @@
 package space;
 
 import iut.Game;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -13,8 +14,14 @@ import iut.Game;
  */
 public class VaisseauProtege extends VaisseauJoueur{
     
-    public VaisseauProtege(Game g) {
-        super(g);
+    public VaisseauProtege(Game g, String sprite) {
+        super(g, sprite);
+    }
+    
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        super.keyPressed(e); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

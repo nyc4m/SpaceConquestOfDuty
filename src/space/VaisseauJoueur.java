@@ -19,7 +19,6 @@ import java.awt.event.KeyListener;
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     private boolean ennemy = true;
-    private BonusBouclier bouclier = null;
 
     public VaisseauJoueur(Game g, String sprite) {
         super(g, sprite, 30, g.getHeight() / 2 - 50);
@@ -27,15 +26,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     public void effect(Objet o) {
         if (o.isFriend()) {
-            System.out.println("Bonus");
-            this.bouclier = new BonusBouclier((GameInst) this.game());
-            this.game().add(this.bouclier);
-
-        } else if (o.isEnnemy()) {
-            if (this.bouclier != null) {
-                this.game().remove(this.bouclier);
-                this.bouclier = null;
-            }
+            System.out.println("Bouclier");
         } else {
             System.out.println("Ship damaged BIATCH !!");
         }
