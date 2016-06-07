@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package space;
+package ElementJeu;
 
 import iut.Objet;
+import space.GameInst;
+import space.VaisseauProtege;
 
 /**
  *
  * @author bapt
  */
-public class Bouclier extends ElementTouchable{
+public class Bouclier extends iut.ObjetTouchable{
 
     private final int delai = 0;
     private final double vitesse = -0.5;
@@ -54,10 +56,10 @@ public class Bouclier extends ElementTouchable{
     public void move(long dt) {
          this.moveX(vitesse*dt);
     }
-
+    
     @Override
-    public int getType() {
-        return 222;
+    public String toString() {
+        return "B"; 
     }
     
 }

@@ -50,8 +50,9 @@ public class Meteor2 extends Meteor{
     }
 
     @Override
-    public int getType() {
-        return 2;
+    public String toString() {
+        return "M2"; 
     }
+    
     
 }

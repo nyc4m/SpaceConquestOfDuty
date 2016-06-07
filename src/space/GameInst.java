@@ -5,6 +5,7 @@
  */
 package space;
 
+import ElementJeu.Bouclier;
 import Ennemis.*;
 import IHM.GagneF;
 import iut.Game;

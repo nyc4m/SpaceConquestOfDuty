@@ -16,7 +16,7 @@ import java.awt.event.KeyListener;
  *
  * @author Florian
  */
-public class VaisseauJoueur extends ElementTouchable implements KeyListener {
+public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
@@ -27,6 +27,7 @@ public class VaisseauJoueur extends ElementTouchable implements KeyListener {
     public void effect(Objet o) {
         if (o.isFriend()) {
             System.out.println("Bouclier");
+            System.out.println(o.toString());
         } else {
             System.out.println("Ship damaged BIATCH !!");
         }
@@ -78,10 +79,5 @@ public class VaisseauJoueur extends ElementTouchable implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-    }
-
-    @Override
-    public int getType() {
-        return 111;
     }
 }
