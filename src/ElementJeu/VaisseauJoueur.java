@@ -20,8 +20,8 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     private int vie;
     private int missiles;
-    private int Vx;
-    private int Vy;
+    private double Vx;
+    private double Vy;
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
         super(g, sprite, x, y);
@@ -78,6 +78,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     @Override
     public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY
         this.move(Vx, Vy);
+        this.Vy = this.Vy/1.2;
     }
 
     /*public void setennemy();*/
@@ -99,10 +100,10 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         m = 77;
         //deplacement de base haut/bas
         if (kC == up && this.getTop() > 0) {
-            this.Vy = -5;
+            this.Vy = -20;
         }
         if (kC == down && this.getBottom() < this.game().height()) {
-            this.Vy = 5;
+            this.Vy = 20;
         }
 
         //gestion du tir
