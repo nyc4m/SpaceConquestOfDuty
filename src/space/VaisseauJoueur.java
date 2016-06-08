@@ -17,6 +17,9 @@ import java.awt.event.KeyListener;
  * @author Florian
  */
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
+    
+    private int vie = 3;
+    private int missiles = 1;
 
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
@@ -82,9 +85,20 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             this.game().add(t);
         }
         if(kC==m){
-            TMissile tM = new TMissile(this.game(),this.getMiddleX()+50,this.getMiddleY());
-            this.game().add(tM);
+            this.tirerMissile();
         }
+    }
+    
+    public void tirerMissile(){
+        if(!this.aucunMissile()){
+            TMissile tM = new TMissile(this.game(),this.getMiddleX()+50, this.getMiddleY());
+            this.game().add(tM);
+            this.missiles--;
+        }
+    }
+    
+    public boolean aucunMissile(){
+        return this.missiles <= 0;
     }
 
     @Override
