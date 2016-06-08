@@ -30,6 +30,9 @@ public class Bonus extends iut.ObjetTouchable {
                 case "M":
                     System.out.println("Collision avec Missile");
                     break;
+                case "L":
+                    System.out.println("Collission avec un laser");
+                    break;
                 default:
                     this.game().remove(this);
                     break;
