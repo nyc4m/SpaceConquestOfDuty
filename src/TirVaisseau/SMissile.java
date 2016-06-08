@@ -6,6 +6,7 @@
 package TirVaisseau;
 
 import iut.Game;
+import iut.Objet;
 
 /**
  *
@@ -15,6 +16,17 @@ public class SMissile extends Tir{
     
     public SMissile(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
+    }
+    
+    
+    @Override
+    public void effect(Objet objet) {
+        if(this.collision(objet)){
+            if(objet.isEnnemy()){
+                this.game().remove(objet);
+                this.game().remove(this);
+            }
+        }
     }
     
 }

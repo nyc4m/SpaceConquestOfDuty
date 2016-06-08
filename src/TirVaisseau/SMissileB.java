@@ -23,13 +23,4 @@ public class SMissileB extends SMissile{
         this.move(30, 30);
     }
     
-    @Override
-    public void effect(Objet objet) {
-        if(this.collision(objet)){
-            if(objet.isEnnemy()){
-                this.game().remove(objet);
-                this.game().remove(this);
-            }
-        }
-    }
 }
