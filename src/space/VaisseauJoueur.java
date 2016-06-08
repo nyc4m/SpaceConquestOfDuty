@@ -42,9 +42,9 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             case "M":
                 try {
                     this.ajouterMissile();
-                    System.out.println("Missile ajoute");
+                    System.out.println("[INFO]Missile added");
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    System.err.println(e.getMessage());
                 }
                 break;
         }
