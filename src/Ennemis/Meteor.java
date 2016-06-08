@@ -15,6 +15,13 @@ public abstract class Meteor extends iut.ObjetTouchable{
     public Meteor(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
+
+    @Override
+    public String toString() {
+        return "M";
+    }
+    
+    
 }
 
     

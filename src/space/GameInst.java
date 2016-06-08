@@ -5,6 +5,7 @@
  */
 package space;
 
+import ElementJeu.VaisseauJoueur;
 import ElementJeu.Bouclier;
 import ElementJeu.Missile;
 import Ennemis.*;
@@ -41,13 +42,13 @@ public class GameInst extends Game{
         //test ajout météor
 
        
-        Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2,-10,0);
+        Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2,-3,0);
         this.add(m3);
 
-        Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()-100,-10,0);
+        Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2,-5,0);
         this.add(m2);
         
-        Meteor1 m1 = new Meteor1(this,this.getWidth()-50, this.getHeight()/3,-10,0);
+        Meteor1 m1 = new Meteor1(this,this.getWidth()-50, this.getHeight()/3,-6,0);
         this.add(m1);
         
         Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);

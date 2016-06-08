@@ -6,7 +6,6 @@
 package TirVaisseau;
 
 import iut.Game;
-import iut.Objet;
 
 /**
  *
@@ -21,5 +20,10 @@ public class SMissileC extends SMissile{
     @Override
     public void move(long l) {
         this.move(30, 0);
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

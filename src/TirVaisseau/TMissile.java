@@ -36,6 +36,13 @@ public class TMissile extends Tir{
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+    
+    
     
     
     

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package space;
+package ElementJeu;
 
 import iut.Game;
 import iut.Objet;
@@ -40,7 +40,13 @@ public class VaisseauProtege extends VaisseauJoueur implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         super.keyPressed(e); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("Vaisseau protege");
     }
+
+    @Override
+    public String toString() {
+        return "VaisseauProtege";
+    }
+    
+    
     
 }

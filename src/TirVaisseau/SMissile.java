@@ -28,6 +28,11 @@ public class SMissile extends Tir{
             }
         }
     }
+    
+    @Override
+    public String toString() {
+        return super.toString();
+    }
    
     
 }

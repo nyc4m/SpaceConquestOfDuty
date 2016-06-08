@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package space;
+package ElementJeu;
 
+import ElementJeu.Explo;
 import TirVaisseau.TLaser;
 import TirVaisseau.TMissile;
 import iut.Game;
@@ -29,8 +30,11 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     public void effect(Objet o) {
         if (o.isFriend()) {
             this.collisionBonus(o);
-        } else {
+        } else if(o.isEnnemy()){
             System.out.println("Ship damaged BIATCH !!");
+            this.game().remove(this);
+            Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
+            this.game().add(e);
         }
     }
 
@@ -142,4 +146,11 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
     }
+
+    @Override
+    public String toString() {
+        return "VaisseauJoueur";
+    }
+    
+    
 }

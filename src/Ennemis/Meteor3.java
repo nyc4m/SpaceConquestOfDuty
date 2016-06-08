@@ -23,11 +23,12 @@ public class Meteor3 extends Meteor{
     }
 
     @Override
-    public void effect(Objet objet) {
-        if(this.collision(objet)){
-            if(objet.isFriend()){
-                Meteor2 m1 = new Meteor2(this.game(), this.getMiddleX(),this.getMiddleY(),-10,-10);
-                Meteor2 m2 = new Meteor2(this.game(), this.getMiddleX(),this.getMiddleY(),-10,10);
+    public void effect(Objet o) {
+        if(this.collision(o)){
+            if (o.toString()=="T") {
+                System.out.println("scinder M3");
+                Meteor2 m1 = new Meteor2(this.game(), this.getMiddleX()-130,this.getMiddleY()-113,-10,-10);
+                Meteor2 m2 = new Meteor2(this.game(), this.getMiddleX()-130,this.getMiddleY()-113,-10,10);
                 this.game().add(m1);
                 this.game().add(m2);
             }

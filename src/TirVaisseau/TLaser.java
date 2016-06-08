@@ -28,8 +28,9 @@ public class TLaser extends Tir{
         }
     }
     
-    public String toString(){
-        return "L";
+    @Override
+    public String toString() {
+        return super.toString();
     }
     
     

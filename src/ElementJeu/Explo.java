@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TirVaisseau;
+package ElementJeu;
 
 import iut.Game;
 import iut.Objet;
@@ -12,15 +12,19 @@ import iut.Objet;
  *
  * @author Florian
  */
-public abstract class Tir extends iut.ObjetTouchable{
+public class Explo extends iut.Objet{
 
-    public Tir(Game g, String nom, int x, int y) {
-        super(g, nom, x, y);
+    public Explo(Game g, double _x, double _y) {
+        super(g, "big_exp", _x, _y);
+    }
+
+    @Override
+    public boolean collision(Objet objet) {
+        return false;
     }
 
     @Override
     public void effect(Objet objet) {
-        
     }
 
     @Override
@@ -30,17 +34,11 @@ public abstract class Tir extends iut.ObjetTouchable{
 
     @Override
     public boolean isEnnemy() {
-        return false;
+        return true;
     }
 
     @Override
     public void move(long l) {
-        this.move(30, 0);
-    }
-    
-    @Override
-    public String toString(){
-        return "T";
     }
     
 }
