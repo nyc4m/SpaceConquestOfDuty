@@ -19,7 +19,7 @@ import java.awt.event.KeyListener;
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     private int vie = 3;
-    private int missiles = 0;
+    private int missiles = 3;
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
         super(g, sprite, x, y);
