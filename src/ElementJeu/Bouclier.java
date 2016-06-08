@@ -5,9 +5,7 @@
  */
 package ElementJeu;
 
-import iut.Objet;
 import space.GameInst;
-import space.VaisseauProtege;
 
 /**
  *

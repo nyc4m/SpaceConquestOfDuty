@@ -6,7 +6,6 @@
 package ElementJeu;
 
 import iut.Game;
-import iut.Objet;
 
 /**
  *

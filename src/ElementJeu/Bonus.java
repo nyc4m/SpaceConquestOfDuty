@@ -25,13 +25,16 @@ public class Bonus extends iut.ObjetTouchable {
         if (o.isFriend()) {
             switch (o.toString()) {
                 case "B":
-                    System.out.println("Collision avec bouclier");
+                    System.out.println("[INFO] Collision avec bouclier");
                     break;
                 case "M":
-                    System.out.println("Collision avec Missile");
+                    System.out.println("[INFO]Collision avec Missile");
                     break;
                 case "L":
-                    System.out.println("Collission avec un laser");
+                    System.out.println("[INFO]Collission avec un laser");
+                    break;
+                case "T" :
+                    System.out.println("[INFO]Colission avec un tir");
                     break;
                 default:
                     this.game().remove(this);
@@ -39,6 +42,7 @@ public class Bonus extends iut.ObjetTouchable {
             }
         }
     }
+    
 
     @Override
     public boolean isFriend() {
