@@ -17,10 +17,9 @@ import java.awt.event.KeyListener;
  * @author Florian
  */
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
-    
-    private int vie = 3;
-    private int missiles = 1;
 
+    private int vie = 3;
+    private int missiles = 0;
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
         super(g, sprite, x, y);
@@ -29,7 +28,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     @Override
     public void effect(Objet o) {
         if (o.isFriend()) {
-            if(o.toString().equals("B")){
+            if (o.toString().equals("B")) {
                 System.out.println("Bouclier");
                 this.ajouterBouclier();
             }
@@ -37,11 +36,26 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             System.out.println("Ship damaged BIATCH !!");
         }
     }
-    
-    public void ajouterBouclier(){
+
+    public void collissionBonus(Objet o) {
+        switch (o.toString()) {
+            case "B":
+                this.ajouterBouclier();
+                break;
+            case "M":
+                try {
+                    this.ajouterMissile();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+        }
+    }
+
+    public void ajouterBouclier() {
         this.game().remove(this);
         this.game().removeKeyListener(this);
-        VaisseauProtege v = new VaisseauProtege(this.game(), "vaisseau_shield", this.getLeft(), this.getBottom()-87);
+        VaisseauProtege v = new VaisseauProtege(this.game(), "vaisseau_shield", this.getLeft(), this.getBottom() - 87);
         this.game().add(v);
         this.game().addKeyListener(v);
     }
@@ -71,33 +85,54 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         //gestion des déplacements
         int kC = e.getKeyCode();
         int up, down, left, right, space, m;
-        
-        up=38; down = 40; left=37; right=39; space=32; m=77; 
+
+        up = 38;
+        down = 40;
+        left = 37;
+        right = 39;
+        space = 32;
+        m = 77;
         //deplacement de base haut/bas
-        if(kC==up && this.getTop() > 0)
-            this.move(0,-20);
-        if(kC==down && this.getBottom() < this.game().height())
-            this.move(0,20);
-        
+        if (kC == up && this.getTop() > 0) {
+            this.move(0, -20);
+        }
+        if (kC == down && this.getBottom() < this.game().height()) {
+            this.move(0, 20);
+        }
+
         //gestion du tir
-        if(kC==space){
-            TLaser t = new TLaser(this.game(),this.getMiddleX()+50,this.getMiddleY());
+        if (kC == space) {
+            TLaser t = new TLaser(this.game(), this.getMiddleX() + 50, this.getMiddleY());
             this.game().add(t);
         }
-        if(kC==m){
+        if (kC == m) {
+            try{
             this.tirerMissile();
+            }catch(Exception err){
+                System.err.println(err.getMessage());
+            }
         }
     }
-    
-    public void tirerMissile(){
-        if(!this.aucunMissile()){
-            TMissile tM = new TMissile(this.game(),this.getMiddleX()+50, this.getMiddleY());
+
+    public void tirerMissile() throws Exception{
+        if (!this.aucunMissile()) {
+            TMissile tM = new TMissile(this.game(), this.getMiddleX() + 50, this.getMiddleY());
             this.game().add(tM);
             this.missiles--;
+        }else{
+            throw new Exception("Vous n'avez plus de missiles");
         }
     }
-    
-    public boolean aucunMissile(){
+
+    public void ajouterMissile() throws Exception {
+        if (this.missiles >= 3) {
+            throw new Exception("Trop de missiles");
+        } else {
+            this.missiles++;
+        }
+    }
+
+    public boolean aucunMissile() {
         return this.missiles <= 0;
     }
 
