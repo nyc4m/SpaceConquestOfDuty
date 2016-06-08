@@ -12,7 +12,7 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class SMissileH extends Tir{
+public class SMissileH extends SMissile{
     
     public SMissileH(Game g, int x, int y) {
         super(g,"SMissileH", x, y);
