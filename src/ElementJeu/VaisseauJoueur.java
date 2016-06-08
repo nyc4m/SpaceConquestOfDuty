@@ -34,10 +34,18 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         if (o.isFriend()) {
             this.collisionBonus(o);
         } else if(o.isEnnemy()){
+            if(this.vie>0){
+                System.out.println("Ship damaged BIATCH !!");
+                this.game().remove(o);
+                this.vie-=1;
+                System.out.println("T as perdu une vie mauvais !");
+            }
+            else{
             System.out.println("Ship damaged BIATCH !!");
             this.game().remove(this);
             Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
             this.game().add(e);
+            }
         }
     }
 
