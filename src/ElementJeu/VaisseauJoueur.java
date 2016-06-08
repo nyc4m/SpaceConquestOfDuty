@@ -99,10 +99,10 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         space = 32;
         m = 77;
         //deplacement de base haut/bas
-        if (kC == up && this.getTop() > 0) {
+        if (kC == up && this.getTop() > 87) {
             this.Vy = -20;
         }
-        if (kC == down && this.getBottom() < this.game().height()) {
+        if (kC == down && this.getBottom() < this.game().height()-87) {
             this.Vy = 20;
         }
 
@@ -155,6 +155,4 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     public String toString() {
         return "VaisseauJoueur";
     }
-    
-    
 }
