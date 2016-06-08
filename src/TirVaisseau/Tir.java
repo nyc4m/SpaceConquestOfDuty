@@ -38,4 +38,8 @@ public abstract class Tir extends iut.ObjetTouchable{
         this.move(30, 0);
     }
     
+    public String toString(){
+        return "T";
+    }
+    
 }

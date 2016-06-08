@@ -12,7 +12,7 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class SMissileC extends Tir{
+public class SMissileC extends SMissile{
     
     public SMissileC(Game g, int x, int y) {
         super(g, "SMissileC", x, y);
@@ -21,15 +21,5 @@ public class SMissileC extends Tir{
     @Override
     public void move(long l) {
         this.move(30, 0);
-    }
-    
-    @Override
-    public void effect(Objet objet) {
-        if(this.collision(objet)){
-            if(objet.isEnnemy()){
-                this.game().remove(objet);
-                this.game().remove(this);
-            }
-        }
     }
 }

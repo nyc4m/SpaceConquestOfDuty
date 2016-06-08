@@ -19,7 +19,7 @@ import java.awt.event.KeyListener;
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     private int vie = 3;
-    private int missiles = 0;
+    private int missiles = 3;
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
         super(g, sprite, x, y);
@@ -28,16 +28,13 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     @Override
     public void effect(Objet o) {
         if (o.isFriend()) {
-            if (o.toString().equals("B")) {
-                System.out.println("Bouclier");
-                this.ajouterBouclier();
-            }
+            this.collisionBonus(o);
         } else {
             System.out.println("Ship damaged BIATCH !!");
         }
     }
 
-    public void collissionBonus(Objet o) {
+    public void collisionBonus(Objet o) {
         switch (o.toString()) {
             case "B":
                 this.ajouterBouclier();
@@ -45,6 +42,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             case "M":
                 try {
                     this.ajouterMissile();
+                    System.out.println("Missile ajoute");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -125,15 +123,20 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     }
 
     public void ajouterMissile() throws Exception {
-        if (this.missiles >= 3) {
+        if (this.tropDeMissile()) {
             throw new Exception("Trop de missiles");
         } else {
             this.missiles++;
+            System.out.println("missiles = " + missiles);
         }
     }
 
     public boolean aucunMissile() {
         return this.missiles <= 0;
+    }
+    
+    public boolean tropDeMissile(){
+        return this.missiles>=3;
     }
 
     @Override
