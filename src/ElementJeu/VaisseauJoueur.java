@@ -5,7 +5,6 @@
  */
 package ElementJeu;
 
-import ElementJeu.Explo;
 import TirVaisseau.TLaser;
 import TirVaisseau.TMissile;
 import iut.Game;
@@ -19,11 +18,15 @@ import java.awt.event.KeyListener;
  */
 public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
-    private int vie = 3;
-    private int missiles = 3;
+    private int vie;
+    private int missiles;
+    private int Vx;
+    private int Vy;
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
         super(g, sprite, x, y);
+        this.missiles = 3;
+        this.vie = 3;
     }
 
     @Override
@@ -74,7 +77,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     @Override
     public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY
-
+        this.move(Vx, Vy);
     }
 
     /*public void setennemy();*/
@@ -96,10 +99,10 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         m = 77;
         //deplacement de base haut/bas
         if (kC == up && this.getTop() > 0) {
-            this.move(0, -20);
+            this.Vy = -5;
         }
         if (kC == down && this.getBottom() < this.game().height()) {
-            this.move(0, 20);
+            this.Vy = 5;
         }
 
         //gestion du tir

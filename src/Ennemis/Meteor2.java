@@ -25,7 +25,7 @@ public class Meteor2 extends Meteor{
     @Override
     public void effect(Objet o) {
         if(this.collision(o)){
-            if (o.toString()=="T"){
+            if ("T".equals(o.toString())){
                 System.out.println("scinder m2");
                 Meteor1 m1 = new Meteor1(this.game(), this.getMiddleX()-60,this.getMiddleY()-68,-10,-10);
                 Meteor1 m2 = new Meteor1(this.game(), this.getMiddleX()-60,this.getMiddleY()-68,-10,10);
