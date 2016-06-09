@@ -86,13 +86,14 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     @Override
     public void move(long l) {//méthode appelée en permanence (utiliser moveX et moveY
         this.move(Vx, Vy);
-        this.Vy = this.Vy/1.2;
     }
 
     /*public void setennemy();*/
     @Override
     public void keyTyped(KeyEvent e) {
+        
     }
+    
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -140,7 +141,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     public void ajouterMissile() throws Exception {
         if (this.tropDeMissile()) {
-            throw new Exception("Trop de missiles");
+            throw new Exception("Too much missiles");
         } else {
             this.missiles++;
             System.out.println("missiles = " + missiles);
@@ -157,6 +158,19 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        int kC = e.getKeyCode();
+        int up, down, left, right, space, m;
+
+        up = 38;
+        down = 40;
+        left = 37;
+        right = 39;
+        space = 32;
+        m = 77;
+        
+        if(kC==38 || kC==40){
+            this.Vy = 0;
+        }
     }
 
     @Override
