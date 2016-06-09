@@ -24,38 +24,51 @@ public class HUD {
 
     public HUD(Game g, int nbVie, int nbMissiles, int x, int y) {
         for (int i = 0; i < 3; i++) {
+            try{
             this.vie.add(new VieIcone());
             this.missile.add(new MissileIcone());
+            }catch(Exception e){
+                System.err.println(e.getMessage());
+            }
         }
         this.x = x;
         this.y = y;
         this.g = g;
     }
-    
-    
-    public void enleverVie(){
-        this.vie.remove(this.vie.size()-1); //on enlève le dernier élément de la liste
+
+    public void enleverVie() {
+        this.vie.remove(this.vie.size() - 1); //on enlève le dernier élément de la liste
     }
-    
-    public void ajouterVie(){
-        this.vie.add(new VieIcone());
+
+    public void ajouterVie() {
+        try {
+            this.vie.add(new VieIcone());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
-    
-    public void enleverMissile(){
-        this.missile.remove(this.missile.size()-1);
+
+    public void enleverMissile() {
+        this.missile.remove(this.missile.size() - 1);
     }
-    
-    public void ajouterMissile(){
+
+    public void ajouterMissile() {
+        try{
         this.missile.add(new MissileIcone());
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+        }
     }
-    
-    public void afficher(){
-        for(int i = 0; i < this.vie.size(); i++){
-            this.vie.get(i).draw(g.getGraphics(), x+2*i, y); //On espace chaque element de ix2
+
+    public void afficher() {
+        for (int i = 0; i < this.vie.size(); i++) {
+            this.vie.get(i).draw(g.getGraphics(), x + 2 * i, y); //On espace chaque element de ix2
+        }
+
+        for (int i = 0; i < this.missile.size(); i++) {
+            this.missile.get(i).draw(g.getGraphics(), x + 2 * i, y + 6); //On decale d'une ligne
         }
         
-        for(int i = 0; i < this.missile.size(); i++){
-            this.missile.get(i).draw(g.getGraphics(), x+2*i, y+6); //On decale d'une ligne
-        }
+        System.out.println("Affichage");
     }
 }

@@ -9,6 +9,7 @@ import ElementJeu.VaisseauJoueur;
 import ElementJeu.Bouclier;
 import ElementJeu.Missile;
 import Ennemis.*;
+import HUD.HUD;
 import IHM.GagneF;
 import iut.Game;
 import java.awt.Color;
@@ -26,10 +27,13 @@ import javax.imageio.ImageIO;
  */
 public class GameInst extends Game{
 
-    VaisseauJoueur vaisseau;
+    private VaisseauJoueur vaisseau;
+    private HUD _hud;
     
     public GameInst() {
         super(1024, 768, "Space");
+        this._hud = new HUD(this, 3, 3, 10, 10);
+        
     }
 
     @Override
@@ -56,6 +60,8 @@ public class GameInst extends Game{
         
         Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
         this.add(m);
+        
+        this._hud.afficher();
         
     }
 

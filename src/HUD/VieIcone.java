@@ -6,6 +6,9 @@
 package HUD;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -13,12 +16,9 @@ import java.awt.Image;
  */
 public class VieIcone extends iut.Sprite{
     
-    public VieIcone(Image i) {
-        super(i);
+    public VieIcone() throws IOException {
+        super(ImageIO.read(new File("Images/vie.png")));
     }
 
-    VieIcone() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

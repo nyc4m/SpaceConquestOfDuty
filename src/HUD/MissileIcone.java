@@ -6,6 +6,9 @@
 package HUD;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -13,12 +16,8 @@ import java.awt.Image;
  */
 public class MissileIcone extends iut.Sprite{
     
-    public MissileIcone(Image i) {
-        super(i);
-    }
-
-    MissileIcone() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public MissileIcone() throws IOException {
+        super(ImageIO.read(new File("Images/missile.png")));
     }
     
 }
