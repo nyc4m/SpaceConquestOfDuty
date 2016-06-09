@@ -18,7 +18,7 @@ public class Meteor1 extends Meteor{
 
     public Meteor1(Game g, int x, int y, int _dirX, int _dirY) {
         super(g, "meteor1", x, y);
-        this.dirX = -0.2565565;
+        this.dirX = -5;
         this.dirY = _dirY;
     }
 
@@ -38,7 +38,7 @@ public class Meteor1 extends Meteor{
 
     @Override
     public void move(long l) {
-        this.move(this.dirX,5*Math.sin(this.getMiddleX()));
+        this.move(this.dirX,6*Math.sin(this.getMiddleX()/100));
     }
     
     @Override
