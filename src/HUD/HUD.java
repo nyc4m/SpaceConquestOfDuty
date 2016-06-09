@@ -61,14 +61,15 @@ public class HUD {
     }
 
     public void afficher() {
+        System.out.println("Affichage du HUD :");
         for (int i = 0; i < this.vie.size(); i++) {
-            this.vie.get(i).draw(g.getGraphics(), x + 2 * i, y); //On espace chaque element de ix2
+            this.vie.get(i).draw(g.getGraphics(), 0, 0); //On espace chaque element de ix2 pixels
+            System.out.println("\tUne icone de vie");
         }
 
         for (int i = 0; i < this.missile.size(); i++) {
-            this.missile.get(i).draw(g.getGraphics(), x + 2 * i, y + 6); //On decale d'une ligne
+            this.missile.get(i).draw(g.getGraphics(), x + 10 * i, y + 6); //On decale d'une ligne
+            System.out.println("\tUne icone de Missile");
         }
-        
-        System.out.println("Affichage");
     }
 }
