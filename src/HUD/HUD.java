@@ -6,43 +6,56 @@
 package HUD;
 
 import iut.Game;
-import iut.Objet;
 import java.awt.Image;
+import java.util.ArrayList;
 
 /**
  *
  * @author Baptiste
  */
-public class HUD extends iut.Objet{
+public class HUD {
 
-    public HUD(Game g, String nom, double _x, double _y) {
-        super(g, nom, _x, _y);
+    private ArrayList<VieIcone> vie = new ArrayList();
+    private ArrayList<MissileIcone> missile = new ArrayList();
+    private int x;
+    private int y;
+    private int score = 0;
+    private Game g;
+
+    public HUD(Game g, int nbVie, int nbMissiles, int x, int y) {
+        for (int i = 0; i < 3; i++) {
+            this.vie.add(new VieIcone());
+            this.missile.add(new MissileIcone());
+        }
+        this.x = x;
+        this.y = y;
+        this.g = g;
     }
-
-    @Override
-    public boolean collision(Objet objet) {
-        return false;
-    }
-
-    @Override
-    public void effect(Objet objet) {
-        System.out.println("[INFO] Touched by something but you don't care since it's a fucking HUD");
-    }
-
-    @Override
-    public boolean isFriend() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnnemy() {
-        return false;
-    }
-
-    @Override
-    public void move(long l) {
-        
-    }
-
     
+    
+    public void enleverVie(){
+        this.vie.remove(this.vie.size()-1); //on enlève le dernier élément de la liste
+    }
+    
+    public void ajouterVie(){
+        this.vie.add(new VieIcone());
+    }
+    
+    public void enleverMissile(){
+        this.missile.remove(this.missile.size()-1);
+    }
+    
+    public void ajouterMissile(){
+        this.missile.add(new MissileIcone());
+    }
+    
+    public void afficher(){
+        for(int i = 0; i < this.vie.size(); i++){
+            this.vie.get(i).draw(g.getGraphics(), x+2*i, y); //On espace chaque element de ix2
+        }
+        
+        for(int i = 0; i < this.missile.size(); i++){
+            this.missile.get(i).draw(g.getGraphics(), x+2*i, y+6); //On decale d'une ligne
+        }
+    }
 }
