@@ -9,10 +9,8 @@ import ElementJeu.VaisseauJoueur;
 import ElementJeu.Bouclier;
 import ElementJeu.Missile;
 import Ennemis.*;
-import HUD.HUD;
 import IHM.GagneF;
 import iut.Game;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -28,11 +26,11 @@ import javax.imageio.ImageIO;
 public class GameInst extends Game{
 
     private VaisseauJoueur vaisseau;
-    private HUD _hud;
+    private int xHud = 10; //position en x du HUD
+    private int yHud = 10; //position en y du HUD
     
     public GameInst() {
         super(1024, 768, "Space");
-        this._hud = new HUD(this, 3, 3, 10, 10);
         
     }
 
@@ -46,12 +44,12 @@ public class GameInst extends Game{
         //test ajout météor
 
        
-//        Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2,-3,0);
-//        this.add(m3);
-//
-//        Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2,-5,0);
-//        this.add(m2);
-//        
+        Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2,-3,0);
+        this.add(m3);
+
+        Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2,-5,0);
+        this.add(m2);
+        
         Meteor1 m1 = new Meteor1(this,this.getWidth()/2, this.getHeight()/2,-3,0);
         this.add(m1);
         
@@ -61,7 +59,8 @@ public class GameInst extends Game{
         Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
         this.add(m);
         
-        this._hud.afficher();
+        this.initHUD();
+        
         
     }
 
@@ -69,11 +68,25 @@ public class GameInst extends Game{
     protected void drawBackground(Graphics g) {
         try {
             Image img = ImageIO.read(new File("Images/fond.png"));
-            g.drawImage(img, this.getX(), this.getY(), this.getWidth(), this.getHeight(), Color.white, this);
-        } 
+            g.drawImage(img, this.getX(), this.getY(), this.getWidth(), this.getHeight(), this);
+        }
         catch (IOException ex) {
             Logger.getLogger(GameInst.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void initHUD(){
+        int ESPACEMENT = 10; //espacement entre chaque icone
+        int LARGEUR_ICONE_VIE = 50; //Dimension des icones
+        int LARGEUR_ICONE_MISSILE = 141;
+        int HAUTEUR_ICONE_MISSILE = 140;
+        for(int i = 0; i < 3; i++){
+            IconeVie iV = new IconeVie(this, this.xHud+(LARGEUR_ICONE_VIE+ESPACEMENT)*i, this.yHud);
+            IconeMissile iM = new IconeMissile(this, this.xHud+(LARGEUR_ICONE_MISSILE+ESPACEMENT)*i, this.yHud+HAUTEUR_ICONE_MISSILE+ESPACEMENT);
+            this.add(iM);
+            this.add(iV);
+        }
+        
     }
 
     @Override
