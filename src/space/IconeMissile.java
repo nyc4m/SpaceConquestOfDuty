@@ -15,6 +15,6 @@ import iut.Objet;
 public class IconeMissile extends Icone{
 
     public IconeMissile(Game g, double _x, double _y) {
-        super(g, "missile", _x, _y);
+        super(g, "IconeMissile", _x, _y);
     }
 }

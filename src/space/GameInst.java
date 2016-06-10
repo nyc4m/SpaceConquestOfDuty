@@ -78,8 +78,8 @@ public class GameInst extends Game{
     public void initHUD(){
         int ESPACEMENT = 10; //espacement entre chaque icone
         int LARGEUR_ICONE_VIE = 50; //Dimension des icones
-        int LARGEUR_ICONE_MISSILE = 141;
-        int HAUTEUR_ICONE_MISSILE = 140;
+        int LARGEUR_ICONE_MISSILE = 50;
+        int HAUTEUR_ICONE_MISSILE = 50;
         for(int i = 0; i < 3; i++){
             IconeVie iV = new IconeVie(this, this.xHud+(LARGEUR_ICONE_VIE+ESPACEMENT)*i, this.yHud);
             IconeMissile iM = new IconeMissile(this, this.xHud+(LARGEUR_ICONE_MISSILE+ESPACEMENT)*i, this.yHud+HAUTEUR_ICONE_MISSILE+ESPACEMENT);

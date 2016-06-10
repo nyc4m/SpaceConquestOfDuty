@@ -177,4 +177,14 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     public String toString() {
         return "VaisseauJoueur";
     }
+
+    public int getVie() {
+        return vie;
+    }
+
+    public int getMissiles() {
+        return missiles;
+    }
+    
+    
 }
