@@ -11,6 +11,7 @@ import iut.Game;
 import iut.Objet;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import space.GameInst;
 
 /**
  *
@@ -33,18 +34,16 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     public void effect(Objet o) {
         if (o.isFriend()) {
             this.collisionBonus(o);
-        } else if(o.isEnnemy()){
-            if(this.vie>0){
+        } else if (o.isEnnemy()) {
+            if (this.vie > 0) {
                 System.out.println("Ship damaged BIATCH !!");
                 this.game().remove(o);
-                this.vie-=1;
+                this.vie -= 1;
                 System.out.println("T as perdu une vie mauvais !");
-            }
-            else{
-            System.out.println("Ship damaged BIATCH !!");
-            this.game().remove(this);
-            Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
-            this.game().add(e);
+            } else {
+                this.vie--;
+                GameInst g = (GameInst) this.game();
+                g.majHUD();
             }
         }
     }
@@ -58,6 +57,8 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
                 try {
                     this.ajouterMissile();
                     System.out.println("[INFO]Missile added");
+                    GameInst g = (GameInst) this.game();
+                    g.majHUD();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -91,9 +92,8 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     /*public void setennemy();*/
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
-    
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -111,7 +111,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         if (kC == up && this.getTop() > 87) {
             this.Vy = -20;
         }
-        if (kC == down && this.getBottom() < this.game().height()-87) {
+        if (kC == down && this.getBottom() < this.game().height() - 87) {
             this.Vy = 20;
         }
 
@@ -121,20 +121,20 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             this.game().add(t);
         }
         if (kC == m) {
-            try{
-            this.tirerMissile();
-            }catch(Exception err){
+            try {
+                this.tirerMissile();
+            } catch (Exception err) {
                 System.err.println(err.getMessage());
             }
         }
     }
 
-    public void tirerMissile() throws Exception{
+    public void tirerMissile() throws Exception {
         if (!this.aucunMissile()) {
             TMissile tM = new TMissile(this.game(), this.getMiddleX() + 50, this.getMiddleY());
             this.game().add(tM);
             this.missiles--;
-        }else{
+        } else {
             throw new Exception("Vous n'avez plus de missiles");
         }
     }
@@ -151,9 +151,9 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     public boolean aucunMissile() {
         return this.missiles <= 0;
     }
-    
-    public boolean tropDeMissile(){
-        return this.missiles>=3;
+
+    public boolean tropDeMissile() {
+        return this.missiles >= 3;
     }
 
     @Override
@@ -167,8 +167,8 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         right = 39;
         space = 32;
         m = 77;
-        
-        if(kC==38 || kC==40){
+
+        if (kC == 38 || kC == 40) {
             this.Vy = 0;
         }
     }
@@ -185,6 +185,5 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     public int getMissiles() {
         return missiles;
     }
-    
-    
+
 }
