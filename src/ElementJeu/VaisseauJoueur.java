@@ -5,6 +5,8 @@
  */
 package ElementJeu;
 
+import Ennemis.Meteor;
+import Ennemis.Meteor3;
 import TirVaisseau.TLaser;
 import TirVaisseau.TMissile;
 import iut.Game;
@@ -37,10 +39,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         } else if (o.isEnnemy()) {
             if (this.vie > 0) {
                 System.out.println("Ship damaged BIATCH !!");
-                this.game().remove(o);
-                this.vie -= 1;
-                System.out.println("T as perdu une vie mauvais !");
-            } else {
+                this.game().remove((Meteor)o);
                 this.vie--;
                 GameInst g = (GameInst) this.game();
                 g.majHUD();

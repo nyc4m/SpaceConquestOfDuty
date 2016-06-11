@@ -15,6 +15,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -24,23 +25,27 @@ import javax.imageio.ImageIO;
  * @author Florian
  */
 public class GameInst extends Game {
-    
+
     private VaisseauJoueur vaisseau;
     private int xHud = 10; //position en x du HUD
     private int yHud = 10; //position en y du HUD
     private int vie;
     private int missile;
-    
+
     private final int ESPACEMENT = 10; //espacement entre chaque icone
     private final int LARGEUR_ICONE_VIE = 50; //Dimension des icones du HUD
     private final int LARGEUR_ICONE_MISSILE = 50;
     private final int HAUTEUR_ICONE_MISSILE = 50;
-    
+    private ArrayList<Icone> icones = new ArrayList(); //stocke les icones du nombre du hud pour les supprimer plus tard
+
     public GameInst() {
         super(1024, 768, "Space");
-        
+        for (int i = 0; i < 6; i++) {
+            this.icones.add(this.iconeNeutre()); //On ajoute des icones neutres pour pouvoir jouer avec les indexs
+        }
+
     }
-    
+
     @Override
     protected void createObjects() {
         //ajout vaisseau
@@ -54,23 +59,23 @@ public class GameInst extends Game {
 
         Meteor3 m3 = new Meteor3(this, this.getWidth() - 50, this.getHeight() / 2, -3, 0);
         this.add(m3);
-        
+
         Meteor2 m2 = new Meteor2(this, this.getWidth() - 50, this.getHeight() / 2, -5, 0);
         this.add(m2);
-        
+
         Meteor1 m1 = new Meteor1(this, this.getWidth() / 2, this.getHeight() / 2, -3, 0);
         this.add(m1);
-        
+
         Bouclier b = new Bouclier(this, this.getWidth() - 50, this.getHeight() / 2);
         this.add(b);
-        
+
         Missile m = new Missile(this, this.getWidth() - 50, this.getHeight() / 3);
         this.add(m);
-        
+
         this.initHUD();
-        
+
     }
-    
+
     @Override
     protected void drawBackground(Graphics g) {
         try {
@@ -80,25 +85,33 @@ public class GameInst extends Game {
             Logger.getLogger(GameInst.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void initHUD() {
         for (int i = 0; i < 3; i++) {
             IconeVie iV = new IconeVie(this, this.xHud + (LARGEUR_ICONE_VIE + ESPACEMENT) * i, this.yHud);
             IconeMissile iM = new IconeMissile(this, this.xHud + (LARGEUR_ICONE_MISSILE + ESPACEMENT) * i, this.yHud + HAUTEUR_ICONE_MISSILE + ESPACEMENT);
             this.add(iM);
             this.add(iV);
+            this.icones.set(i, iV);
+            this.icones.set(i + 3, iM);
         }
-        
+
     }
-    
-    public void enleverIconeVie(int x) {
-        this.enleverIcone("IconeVie", x, this.yHud);
+
+    public void enleverIconeVie(int qVie) {
+        this.remove(this.icones.get(qVie));
+        this.icones.set(qVie, this.iconeNeutre());
     }
-    
-    public void enleverIconeMissile(int x) {
-        this.enleverIcone("IconeMissile", x, this.yHud + this.ESPACEMENT + this.HAUTEUR_ICONE_MISSILE);
+
+    public Icone iconeNeutre() {
+        return new Icone(this, null, 0, 0);
     }
-    
+
+    public void enleverIconeMissile(int qMissile) {
+        this.remove(this.icones.get(qMissile + 3));
+        this.icones.set(qMissile + 3, this.iconeNeutre());
+    }
+
     public void enleverIcone(String nom, int x, int y) {
         switch (nom) {
             case "IconeVie":
@@ -109,41 +122,35 @@ public class GameInst extends Game {
                 break;
         }
     }
-    
+
     public void majHUD() {
         if (this.vaisseau.getVie() != this.vie) {
             this.vie = this.vaisseau.getVie();
-            switch (this.vie) {
-                case 0:
-                    this.enleverIconeVie(this.xHud);
-                    break;
-                case 1:
-                    this.enleverIconeVie(this.xHud + this.ESPACEMENT + this.LARGEUR_ICONE_VIE);
-                    break;
-                case 2:
-                    this.enleverIconeVie(this.xHud + (this.ESPACEMENT + this.LARGEUR_ICONE_VIE) * 2);
-            }
+            this.enleverIconeVie(vie);
         }
-        
+        if (this.vaisseau.getMissiles() != this.missile) {
+            this.missile = this.vaisseau.getMissiles();
+            this.enleverIconeMissile(this.missile);
+        }
     }
-    
+
     @Override
     protected void perdu() {
         System.out.println("vous avez perdu");
     }
-    
+
     @Override
     protected void gagne() {
         GagneF f = new GagneF();
         f.setVisible(true);
     }
-    
+
     public VaisseauJoueur getVaisseau() {
         return this.vaisseau;
     }
-    
+
     public void setVaisseau(VaisseauJoueur v) {
         this.vaisseau = v;
     }
-    
+
 }
