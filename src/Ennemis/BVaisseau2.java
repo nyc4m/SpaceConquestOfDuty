@@ -15,7 +15,7 @@ import iut.Objet;
 public class BVaisseau2 extends BadVaisseau{
 
     public BVaisseau2(Game g, String nom, int x, int y) {
-        super(g, nom, x, y);
+        super(g, "BV2", x, y);
     }
 
     @Override

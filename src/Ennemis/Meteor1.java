@@ -14,7 +14,7 @@ import iut.Objet;
  */
 public class Meteor1 extends Meteor{
     double dirX;
-    int dirY;
+    double dirY;
 
     public Meteor1(Game g, int x, int y, int _dirX, int _dirY) {
         super(g, "meteor1", x, y);
@@ -38,7 +38,7 @@ public class Meteor1 extends Meteor{
 
     @Override
     public void move(long l) {
-        this.move(this.dirX,6*Math.sin(this.getMiddleX()/100));
+        this.move(this.dirX, this.dirY);
     }
     
     @Override
