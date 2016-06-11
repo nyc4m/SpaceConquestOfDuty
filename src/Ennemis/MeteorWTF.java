@@ -6,7 +6,6 @@
 package Ennemis;
 
 import iut.Game;
-import iut.Objet;
 
 /**
  *
@@ -14,36 +13,20 @@ import iut.Objet;
  */
 public class MeteorWTF extends Meteor{
 
-    private double dirX;
-    private double dirY;
-    private double dirRad;
-
-    public MeteorWTF(Game g, double dirRad, int x, int y) {
-        super(g, "meteor1", x, y);
-        this.dirRad = dirRad;
-        this.dirX = -5;
-        this.dirY = Math.sin(this.dirRad);
-    }
-
-    @Override
-    public void effect(Objet objet) {
-        }
-
-    @Override
-    public boolean isFriend() {
-        return false;    
-    }
-
-    @Override
-    public boolean isEnnemy() {
-        return true; 
+    public MeteorWTF(Game g, int x, int y, double _dirRad, double _speed) {
+        super(g, "meteor1", x, y, _dirRad, _speed);
     }
 
     @Override
     public void move(long l) {
-        this.move(this.dirX,this.dirY);
-        this.dirY = 20*Math.sin(this.dirRad);
+        this.move(-this.speed, this.speed*Math.sin(this.dirRad));
         this.dirRad += 0.08;
     }
+
+    @Override
+    public String toString() {
+        return "M-WTF";
+    }
+    
     
 }
