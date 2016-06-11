@@ -6,6 +6,7 @@
 package Ennemis;
 
 import iut.Game;
+import iut.Objet;
 
 /**
  *
@@ -20,6 +21,16 @@ public class Meteor2 extends Meteor{
     @Override
     public String toString() {
         return "M2"; 
+    }
+    
+    @Override
+    public int alea(int min, int max){
+        return min+(int)(Math.random()*((max-min)+1));
+    }
+
+    @Override
+    public void effect(Objet objet) {
+        System.out.println(this.alea(0, 100));
     }
     
     

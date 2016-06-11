@@ -7,17 +7,15 @@ package ElementJeu;
 
 import iut.Game;
 import iut.Objet;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 /**
  *
  * @author bapt
  */
-public class VaisseauProtege extends VaisseauJoueur implements KeyListener{
+public class VaisseauProtege extends Vaisseau{
     
-    public VaisseauProtege(Game g, String sprite, int x, int y) {
-        super(g, sprite, x, y);
+    public VaisseauProtege(Game g, int x, int y) {
+        super(g, "vaisseau_shield", x, y);
     }
     
 
@@ -25,7 +23,7 @@ public class VaisseauProtege extends VaisseauJoueur implements KeyListener{
     public void effect(Objet o) {
         if(o.isEnnemy()){
             //GameInst game = (GameInst)this.game();
-            VaisseauJoueur v = new VaisseauJoueur(this.game(), "vaisseau", this.getLeft(), this.getBottom()-87);
+            VaisseauJoueur v = new VaisseauJoueur(this.game(), this.getLeft(), this.getBottom()-87);
             
             this.game().remove(this);
             this.game().removeKeyListener(this);
@@ -35,18 +33,11 @@ public class VaisseauProtege extends VaisseauJoueur implements KeyListener{
             this.game().add(v);
         }
     }
-    
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        super.keyPressed(e); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public String toString() {
-        return "VaisseauProtege";
+        return "VP";
     }
-    
     
     
 }

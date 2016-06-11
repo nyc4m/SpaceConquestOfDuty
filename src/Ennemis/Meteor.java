@@ -51,6 +51,10 @@ public abstract class Meteor extends iut.ObjetTouchable{
 
     @Override
     public boolean isEnnemy() {return true;} 
+    
+    public int alea(int min, int max){
+        return min+(int)(Math.random()*((max-min)+1));
+    }
 }
 
     

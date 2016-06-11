@@ -22,7 +22,7 @@ public class BVaisseau1 extends BadVaisseau{
     @Override
     public void effect(Objet objet) {
         int a = this.alea(0, 180);
-        int b = this.alea(0, 180);
+        int b = this.alea(0, 60);
         if(a==b){
             badLaser bl = new badLaser(this.game(), this.getMiddleX()-80, this.getMiddleY());
             this.game().add(bl);
