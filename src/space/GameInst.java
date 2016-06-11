@@ -51,6 +51,9 @@ public class GameInst extends Game{
         MeteorWTF m3 = new MeteorWTF(this, this.getWidth(), this.getHeight()/2, Math.PI, 5);
         this.add(m3);
         
+        BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
+        this.add(bv1);
+        
         Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
         this.add(b);
         

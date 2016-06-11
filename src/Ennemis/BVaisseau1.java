@@ -5,6 +5,7 @@
  */
 package Ennemis;
 
+import TirVaisseau.badLaser;
 import iut.Game;
 import iut.Objet;
 
@@ -14,13 +15,18 @@ import iut.Objet;
  */
 public class BVaisseau1 extends BadVaisseau{
 
-    public BVaisseau1(Game g, String nom, int x, int y) {
-        super(g, "BV1", x, y);
+    public BVaisseau1(Game g, int x, int y) {
+        super(g, "bV1", x, y);
     }
 
     @Override
     public void effect(Objet objet) {
-        
+        int a = this.alea(0, 180);
+        int b = this.alea(0, 180);
+        if(a==b){
+            badLaser bl = new badLaser(this.game(), this.getMiddleX()-80, this.getMiddleY());
+            this.game().add(bl);
+        }
     }
 
     @Override
@@ -38,8 +44,10 @@ public class BVaisseau1 extends BadVaisseau{
         
     }
 
-    
-
+    @Override
+    public String toString() {
+        return "BV1";
+    }
     
     
 }

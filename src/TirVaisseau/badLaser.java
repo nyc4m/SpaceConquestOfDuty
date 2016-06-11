@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ennemis;
+package TirVaisseau;
 
 import iut.Game;
 import iut.Objet;
@@ -12,20 +12,20 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class BVaisseau2 extends BadVaisseau{
-
-    public BVaisseau2(Game g, int x, int y) {
-        super(g, "BV2", x, y);
+public class badLaser extends Tir{
+    
+    public badLaser(Game g, int x, int y) {
+        super(g, "badlaser", x, y);
     }
 
     @Override
-    public void effect(Objet objet) {
-        
+    public String toString() {
+        return "BadL";
     }
 
     @Override
-    public boolean isFriend() {
-        return false;
+    public void move(long l) {
+        this.move(-7,0);
     }
 
     @Override
@@ -34,14 +34,11 @@ public class BVaisseau2 extends BadVaisseau{
     }
 
     @Override
-    public void move(long l) {
-        
+    public boolean isFriend() {
+        return false;
     }
 
     @Override
-    public String toString() {
-        return "BV2";
+    public void effect(Objet objet) {
     }
-    
-   
 }
