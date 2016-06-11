@@ -25,11 +25,13 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
     private int missiles;
     private double Vx;
     private double Vy;
+    private GameInst jeu;
 
     public VaisseauJoueur(Game g, String sprite, int x, int y) {
         super(g, sprite, x, y);
         this.missiles = 3;
         this.vie = 3;
+        this.jeu = (GameInst)g; //transtypage pour utiliser les fonctions de GameInst
     }
 
     @Override
@@ -56,8 +58,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
                 try {
                     this.ajouterMissile();
                     System.out.println("[INFO]Missile added");
-                    GameInst g = (GameInst) this.game();
-                    g.majHUD();
+                    this.jeu.majHUD();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -122,6 +123,8 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         if (kC == m) {
             try {
                 this.tirerMissile();
+                this.jeu.majHUD();
+                
             } catch (Exception err) {
                 System.err.println(err.getMessage());
             }
@@ -133,6 +136,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
             TMissile tM = new TMissile(this.game(), this.getMiddleX() + 50, this.getMiddleY());
             this.game().add(tM);
             this.missiles--;
+            
         } else {
             throw new Exception("Vous n'avez plus de missiles");
         }

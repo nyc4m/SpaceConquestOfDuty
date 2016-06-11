@@ -132,6 +132,8 @@ public class GameInst extends Game {
             this.missile = this.vaisseau.getMissiles();
             this.enleverIconeMissile(this.missile);
         }
+        System.out.println("missile = " + missile);
+        System.out.println("missileV" + this.vaisseau.getMissiles());
     }
 
     @Override
