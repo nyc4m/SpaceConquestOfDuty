@@ -15,12 +15,11 @@ public class Missile extends Bonus{
     
     public Missile(Game g, int x, int y) {
         super(g, "missileObjet", x, y);
-        System.out.println("missile cree");
     }
     
     @Override
     public String toString(){
-        return "M";
+        return "Mi";
     }
     
 }

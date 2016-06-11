@@ -5,7 +5,7 @@
  */
 package space;
 
-import ElementJeu.VaisseauJoueur;
+import Vaisseaux.VaisseauJoueur;
 import ElementJeu.Bouclier;
 import ElementJeu.Missile;
 import Ennemis.*;

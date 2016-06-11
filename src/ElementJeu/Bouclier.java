@@ -14,23 +14,7 @@ import space.GameInst;
 public class Bouclier extends Bonus {
     
     public Bouclier(GameInst g, int x, int y) {
-
         super(g, "shield", x, y);
-    }
-
-    @Override
-    public boolean isFriend() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnnemy() {
-        return false;
-    }
-
-    @Override
-    public void move(long dt) {
-        this.moveX(this.getVitesse() * dt);
     }
 
     @Override

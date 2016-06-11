@@ -12,9 +12,9 @@ import iut.Objet;
  *
  * @author bapt
  */
-public class Bonus extends iut.ObjetTouchable {
+public abstract class Bonus extends iut.ObjetTouchable {
 
-    private double vitesse = -0.2;
+    protected final double vitesse = -0.2;
 
     public Bonus(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
@@ -27,7 +27,7 @@ public class Bonus extends iut.ObjetTouchable {
                 case "B":
                     System.out.println("[INFO] Collision avec bouclier");
                     break;
-                case "M":
+                case "Mi":
                     System.out.println("[INFO]Collision avec Missile");
                     break;
                 case "L":
@@ -57,7 +57,7 @@ public class Bonus extends iut.ObjetTouchable {
 
     @Override
     public void move(long dt) {
-        this.moveX(vitesse * dt);
+        this.move(-this.vitesse,0);
     }
 
     public double getVitesse() {
