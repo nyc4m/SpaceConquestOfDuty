@@ -28,21 +28,40 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
 
     @Override
     public void effect(Objet o) {
-        if (o.isFriend()) {
-            this.collisionBonus(o);
-        } else if(o.isEnnemy()){
-            if(this.vie>0){
-                this.game().remove(o);
-                this.vie-=1;
-                System.out.println("T as perdu une vie mauvais !");
-            }
-            else{
-            System.out.println("Ship damaged BIATCH !!");
-            this.game().remove(this);
-            Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
-            this.game().add(e);
-            }
+        switch(this.toString()){
+            case "VJ" : 
+                if (o.isFriend()) {
+                    this.collisionBonus(o);
+                }  
+                else if(o.isEnnemy()){
+                    if(this.vie>0){
+                        this.game().remove(o);
+                        this.vie-=1;
+                        System.out.println("T as perdu une vie mauvais !");
+                    }
+                    else{
+                        System.out.println("Ship damaged BIATCH !!");
+                        this.game().remove(this);
+                        Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
+                        this.game().add(e);
+                    }
+                }
+                break;
+            case "VP" : 
+                if(o.isEnnemy()){
+                    //GameInst game = (GameInst)this.game();
+                    VaisseauJoueur v = new VaisseauJoueur(this.game(), this.getLeft(), this.getBottom()-87);
+
+                    this.game().remove(this);
+                    this.game().removeKeyListener(this);
+
+                    this.game().add(v);
+                    this.game().addKeyListener(v);
+                    this.game().add(v);
+                }
+                break;
         }
+        
     }
     
     public void collisionBonus(Objet o) {
