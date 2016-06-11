@@ -20,7 +20,12 @@ public abstract class Tir extends iut.ObjetTouchable{
 
     @Override
     public void effect(Objet objet) {
-        
+        if(this.collision(objet)){
+            if(objet.isEnnemy()){
+                this.game().remove(objet);
+                this.game().remove(this);
+            }
+        }
     }
 
     @Override

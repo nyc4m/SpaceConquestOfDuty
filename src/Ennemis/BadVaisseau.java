@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TirVaisseau;
+package Ennemis;
 
 import iut.Game;
 
@@ -11,17 +11,16 @@ import iut.Game;
  *
  * @author Florian
  */
-public class TLaser extends Tir{
-    
-    public TLaser(Game g, int x, int y) {
-        super(g, "laser", x, y);
+public abstract class BadVaisseau extends iut.ObjetTouchable{
+
+    public BadVaisseau(Game g, String nom, int x, int y) {
+        super(g, nom, x, y);
     }
-    
+
     @Override
     public String toString() {
-        return super.toString();
+        return "BV";
     }
-    
-    
+
     
 }

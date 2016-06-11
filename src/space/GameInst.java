@@ -48,8 +48,8 @@ public class GameInst extends Game{
 //        Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2,-5,0);
 //        this.add(m2);
 //        
-        Meteor1 m1 = new Meteor1(this,this.getWidth(), 50,-3,0);
-        this.add(m1);
+        MeteorWTF m3 = new MeteorWTF(this, Math.PI/2, this.getWidth(), this.getHeight()/2);
+        this.add(m3);
         
         Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
         this.add(b);

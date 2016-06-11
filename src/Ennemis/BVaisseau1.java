@@ -12,18 +12,15 @@ import iut.Objet;
  *
  * @author Florian
  */
-public class Meteor1 extends Meteor{
-    double dirX;
-    int dirY;
+public class BVaisseau1 extends BadVaisseau{
 
-    public Meteor1(Game g, int x, int y, int _dirX, int _dirY) {
-        super(g, "meteor1", x, y);
-        this.dirX = _dirX;
-        this.dirY = _dirY;
+    public BVaisseau1(Game g, String nom, int x, int y) {
+        super(g, nom, x, y);
     }
 
     @Override
     public void effect(Objet objet) {
+        
     }
 
     @Override
@@ -38,12 +35,11 @@ public class Meteor1 extends Meteor{
 
     @Override
     public void move(long l) {
-        this.move(this.dirX,6*Math.sin(this.getMiddleX()/100));
+        
     }
+
     
-    @Override
-    public String toString() {
-        return "M1"; 
-    }
+
+    
     
 }

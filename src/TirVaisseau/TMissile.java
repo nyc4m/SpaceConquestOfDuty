@@ -24,8 +24,6 @@ public class TMissile extends Tir{
     public void effect(Objet objet) {
         if(this.collision(objet)){
             if(objet.isEnnemy()){
-                this.game().remove(objet);
-                this.game().remove(this);
                 SMissileH smh = new SMissileH(this.game(), this.getMiddleX(), this.getMiddleY());
                 SMissileB smb = new SMissileB(this.game(), this.getMiddleX(), this.getMiddleY());
                 SMissileC smc = new SMissileC(this.game(), this.getMiddleX(), this.getMiddleY());
