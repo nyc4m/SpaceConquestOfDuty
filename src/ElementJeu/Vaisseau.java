@@ -61,7 +61,6 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                 }
                 break;
         }
-        
     }
     
     public void collisionBonus(Objet o) {
