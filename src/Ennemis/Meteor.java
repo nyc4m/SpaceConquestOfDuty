@@ -25,10 +25,25 @@ public abstract class Meteor extends iut.ObjetTouchable{
     @Override
     public void move(long l) {
         this.move(this.speed*Math.cos(dirRad), this.speed*Math.sin(dirRad));
+        if(this.sortie()){
+            this.game().remove(this);
+        }
     }
     
     @Override
     public void effect(Objet objet) {
+        if(this.getLeft()<0){
+            System.out.println("sortie d'écran");
+        }
+    }
+    
+    public boolean sortie(){
+        boolean result = false;
+        if(this.getRight()<0){
+            System.out.println("sortie de : " + this.toString());
+            result = true;
+        }
+        return result;
     }
 
     @Override

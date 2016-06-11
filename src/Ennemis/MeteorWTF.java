@@ -19,8 +19,13 @@ public class MeteorWTF extends Meteor{
 
     @Override
     public void move(long l) {
+        if(this.sortie()){
+            this.game().remove(this);
+        }
+        else {
         this.move(-this.speed, this.speed*Math.sin(this.dirRad));
         this.dirRad += 0.08;
+        }
     }
 
     @Override

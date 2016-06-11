@@ -35,19 +35,19 @@ public class GameInst extends Game{
     @Override
     protected void createObjects() {
         //ajout vaisseau
-        VaisseauJoueur v = new VaisseauJoueur(this, "vaisseau", 30, this.height()/2);
+        VaisseauJoueur v = new VaisseauJoueur(this, "vaisseau", 30, this.height()-80);
         this.vaisseau = v;
         this.addKeyInteractiveObject(v);
         this.add(v);
         //test ajout météor
 
        
-//        Meteor3 m3 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2,-3,0);
-//        this.add(m3);
-//
-//        Meteor2 m2 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2,-5,0);
-//        this.add(m2);
-//        
+        Meteor3 m2 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2,Math.PI,3);
+        this.add(m2);
+
+        Meteor2 m1 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2,Math.PI,10);
+        this.add(m1);
+        
         MeteorWTF m3 = new MeteorWTF(this, this.getWidth(), this.getHeight()/2, Math.PI, 5);
         this.add(m3);
         
