@@ -39,7 +39,9 @@ public class GameInst extends Game{
         this.add(v);
         //test ajout météor
         Vague va = new Vague(this, 1);
-        this.add(va.makeEnemy("M1", 500, 200));
+        
+       va.init();
+       
         
         
 //        BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
