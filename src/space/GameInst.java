@@ -119,7 +119,7 @@ public class GameInst extends Game {
     }
 
     public void ajouterMissile(int qMissile) {
-        IconeMissile m = new IconeMissile(this, this.xHud + (this.ESPACEMENT + this.LARGEUR_ICONE_MISSILE) * qMissile, this.HAUTEUR_ICONE_MISSILE + this.yHud);
+        IconeMissile m = new IconeMissile(this, this.xHud + (this.ESPACEMENT + this.LARGEUR_ICONE_MISSILE) * qMissile, this.ESPACEMENT + this.HAUTEUR_ICONE_MISSILE + this.yHud);
         this.add(m);
         this.icones.set(qMissile, m);
     }
@@ -133,7 +133,7 @@ public class GameInst extends Game {
             if (this.vaisseau.getMissiles() < this.missile) {
                 this.enleverIconeMissile(this.vaisseau.getMissiles());
             } else if (this.vaisseau.getMissiles() > this.missile) {
-                this.ajouterMissile(this.vaisseau.getMissiles());
+                this.ajouterMissile(this.vaisseau.getMissiles()-1);
             }
             
             this.missile = this.vaisseau.getMissiles();
