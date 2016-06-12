@@ -6,9 +6,7 @@
 package space;
 
 import Vaisseaux.VaisseauJoueur;
-import ElementJeu.Bouclier;
-import ElementJeu.Missile;
-import Ennemis.*;
+import ElementJeu.Vague;
 import IHM.GagneF;
 import iut.Game;
 import java.awt.Color;
@@ -40,25 +38,18 @@ public class GameInst extends Game{
         this.addKeyInteractiveObject(v);
         this.add(v);
         //test ajout météor
-
-       
-        Meteor3 m2 = new Meteor3(this,this.getWidth()-50, this.getHeight()/2,Math.PI,3);
-        this.add(m2);
-
-        Meteor2 m1 = new Meteor2(this,this.getWidth()-50, this.getHeight()/2,Math.PI,10);
-        this.add(m1);
+        Vague va = new Vague(this, 1);
+        this.add(va.makeEnemy("M1", 500, 200));
         
-        MeteorWTF m3 = new MeteorWTF(this, this.getWidth(), this.getHeight()/2, Math.PI, 5);
-        this.add(m3);
         
-        BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
-        this.add(bv1);
-        
-        Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
-        this.add(b);
-        
-        Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
-        this.add(m);
+//        BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
+//        this.add(bv1);
+//        
+//        Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
+//        this.add(b);
+//        
+//        Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
+//        this.add(m);
         
     }
 

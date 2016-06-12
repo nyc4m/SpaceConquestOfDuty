@@ -7,36 +7,32 @@ package ElementJeu;
 
 import Ennemis.*;
 import iut.Game;
+import iut.Objet;
 
 /**
  *
  * @author Florian
  */
 public class Vague {
-    private int level;
+    private final int level;
     private Game g;
-    public Vague(Game g,int level) {
-        this.level = level;
+    
+    public Vague(Game g,int _level) {
+        this.level = _level;
     }
     
     public void init(){
-//        switch(this.level){
-//            case 1 : 
-//                Meteor1 m1 = new Meteor1();
-//                Meteor2 m2 = new Meteor2();
-//                Meteor3 m3 = new Meteor3();
-//                Missile mi = new Missile();
-//                break;
-//            case 2 :
-//                Meteor1 m1 = new Meteor1();
-//                Meteor2 m2 = new Meteor2();
-//                Meteor3 m3 = new Meteor3();
-//                Missile mi = new Missile();
-//        }
+        switch(this.level){
+            case 1 : 
+                this.g.add((Objet) this.makeEnemy("M1", this.g.getWidth(), this.g.getHeight()));
+                break;
+            case 2 :
+                break;
+        }
     }
     
-    public Object makeEnemy(String type, int x, int y){
-        Object a = null;
+    public Objet makeEnemy(String type, int x, int y){
+        Objet a = null;
         switch(type){
             case "M1" : 
                 Meteor1 m1 = new Meteor1(this.g, x, y, Math.PI, 5);
