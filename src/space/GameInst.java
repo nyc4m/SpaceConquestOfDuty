@@ -7,6 +7,7 @@ package space;
 
 import Vaisseaux.VaisseauJoueur;
 import ElementJeu.Vague;
+import Ennemis.Meteor1;
 import IHM.GagneF;
 import iut.Game;
 import java.awt.Color;
@@ -40,7 +41,9 @@ public class GameInst extends Game{
         //test ajout météor
         Vague va = new Vague(this, 1);
         
-       va.init();
+  
+        
+       va.init(this);
        
         
         

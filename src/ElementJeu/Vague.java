@@ -20,24 +20,25 @@ public class Vague {
 
     public Vague(Game g, int _level) {
         this.level = _level;
-        this.g =g;
+        
     }
     
 
 
-    public void init() {
+    public void init(Game g2) {
         switch (this.level) {
             case 1:
-                this.g.add((Objet) this.makeEnemy("M1", this.g.getWidth(), this.g.getHeight()));
+                g2.add((Objet) this.makeEnemy("M1", g2.getWidth(), g2.getHeight()));
+               
                 break;
             case 2:
-                this.g.add((Objet) this.makeEnemy("M1", this.g.getWidth(), this.g.getHeight()));
-                this.g.add((Objet) this.makeEnemy("M2", this.g.getWidth(), this.g.getHeight()));
+               g2.add((Objet) this.makeEnemy("M1", g2.getWidth(), g2.getHeight()));
+               g2.add((Objet) this.makeEnemy("M2", g2.getWidth(), g2.getHeight()));
                 break;
             case 3:
-                this.g.add((Objet) this.makeEnemy("M1", this.g.getWidth(), this.g.getHeight()));
-                this.g.add((Objet) this.makeEnemy("M2", this.g.getWidth(), this.g.getHeight()));
-                this.g.add((Objet) this.makeEnemy("M3", this.g.getWidth(), this.g.getHeight()));
+                g2.add((Objet) this.makeEnemy("M1", g2.getWidth(), g2.getHeight()));
+                g2.add((Objet) this.makeEnemy("M2", g2.getWidth(), g2.getHeight()));
+                g2.add((Objet) this.makeEnemy("M3", g2.getWidth(), g2.getHeight()));
         }
     }
 
@@ -64,9 +65,6 @@ public class Vague {
         return a;
     }
 
-    public Game getG() {
-        return g;
-    }
     
   
     
