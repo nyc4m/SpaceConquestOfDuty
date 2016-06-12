@@ -92,7 +92,7 @@ public class GameInst extends Game {
             IconeMissile iM = new IconeMissile(this, this.xHud + (LARGEUR_ICONE_MISSILE + ESPACEMENT) * i, this.yHud + HAUTEUR_ICONE_MISSILE + ESPACEMENT);
             this.add(iM);
             this.add(iV);
-            this.icones.set(i, iV);
+            this.icones.set(i, iV); //On stocke les adresses des objets pour pouvoir supprimer les icones du hud
             this.icones.set(i + 3, iM);
         }
 
@@ -112,15 +112,16 @@ public class GameInst extends Game {
         this.icones.set(qMissile + 3, this.iconeNeutre());
     }
 
-    public void enleverIcone(String nom, int x, int y) {
-        switch (nom) {
-            case "IconeVie":
-                this.remove(new IconeVie(this, x, y));
-                break;
-            case "IconeMissile":
-                this.remove(new IconeMissile(this, x, y));
-                break;
-        }
+    public void ajouterVie(int qVie) {
+        IconeVie v = new IconeVie(this, this.xHud + (this.ESPACEMENT + this.LARGEUR_ICONE_VIE) * qVie, this.yHud);
+        this.add(v);
+        this.icones.set(qVie, v);
+    }
+
+    public void ajouterMissile(int qMissile) {
+        IconeMissile m = new IconeMissile(this, this.xHud + (this.ESPACEMENT + this.LARGEUR_ICONE_MISSILE) * qMissile, this.HAUTEUR_ICONE_MISSILE + this.yHud);
+        this.add(m);
+        this.icones.set(qMissile, m);
     }
 
     public void majHUD() {
@@ -129,8 +130,13 @@ public class GameInst extends Game {
             this.enleverIconeVie(vie);
         }
         if (this.vaisseau.getMissiles() != this.missile) {
+            if (this.vaisseau.getMissiles() < this.missile) {
+                this.enleverIconeMissile(this.vaisseau.getMissiles());
+            } else if (this.vaisseau.getMissiles() > this.missile) {
+                this.ajouterMissile(this.vaisseau.getMissiles());
+            }
+            
             this.missile = this.vaisseau.getMissiles();
-            this.enleverIconeMissile(this.missile);
         }
         System.out.println("missile = " + missile);
         System.out.println("missileV" + this.vaisseau.getMissiles());
