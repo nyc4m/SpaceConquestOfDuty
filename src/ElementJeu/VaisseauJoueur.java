@@ -43,8 +43,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
                 System.out.println("Ship damaged BIATCH !!");
                 this.game().remove((Meteor)o);
                 this.vie--;
-                GameInst g = (GameInst) this.game();
-                g.majHUD();
+                this.jeu.getAth().majHUD();
             }
         }
     }
@@ -58,7 +57,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
                 try {
                     this.ajouterMissile();
                     System.out.println("[INFO]Missile added");
-                    this.jeu.majHUD();
+                    this.jeu.getAth().majHUD();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -123,7 +122,7 @@ public class VaisseauJoueur extends iut.ObjetTouchable implements KeyListener {
         if (kC == m) {
             try {
                 this.tirerMissile();
-                this.jeu.majHUD();
+                this.jeu.getAth().majHUD();
                 
             } catch (Exception err) {
                 System.err.println(err.getMessage());

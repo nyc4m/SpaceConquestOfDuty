@@ -14,7 +14,7 @@ import space.GameInst;
  * @author Baptiste
  */
 public class ATH {
-    private final int LARGEUR_ICONE_VIE = 10;
+    private final int LARGEUR_ICONE_VIE = 50;
     private final int LARGEUR_ICONE_MISSILE = 50;
     private final int HAUTEUR_ICONE_MISSILE = 50;
     private final int ESPACEMENT = 10;
