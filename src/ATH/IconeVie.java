@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package space;
+package ATH;
 
 import iut.Game;
-import iut.Objet;
 
 /**
  *
  * @author bapt
  */
-public class IconeMissile extends Icone{
-
-    public IconeMissile(Game g, double _x, double _y) {
-        super(g, "IconeMissile", _x, _y);
+public class IconeVie extends Icone{
+    
+    public IconeVie(Game g, double _x, double _y) {
+        super(g, "IconeVie", _x, _y);
     }
+    
 }
