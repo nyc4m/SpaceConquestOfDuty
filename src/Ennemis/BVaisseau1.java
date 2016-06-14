@@ -24,16 +24,6 @@ public class BVaisseau1 extends BadVaisseau{
     }
 
     @Override
-    public boolean isFriend() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnnemy() {
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "BV1";
     }

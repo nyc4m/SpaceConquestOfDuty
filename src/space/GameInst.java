@@ -6,7 +6,7 @@
 package space;
 
 import ATH.ATH;
-import ElementJeu.Vague;
+import ElementJeu.*;
 import Ennemis.BVaisseau1;
 import IHM.GagneF;
 import Vaisseaux.VaisseauJoueur;
@@ -48,12 +48,12 @@ public class GameInst extends Game{
         
         BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
         this.add(bv1);
-//        
-//        Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
-//        this.add(b);
-//        
-//        Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
-//        this.add(m);
+        
+        Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
+        this.add(b);
+        
+        Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
+        this.add(m);
         
     }
 

@@ -13,22 +13,20 @@ import space.GameInst;
  *
  * @author Baptiste
  */
-public class ATH {
+public final class ATH {
     private final int LARGEUR_ICONE_VIE = 50;
     private final int LARGEUR_ICONE_MISSILE = 50;
     private final int HAUTEUR_ICONE_MISSILE = 50;
     private final int ESPACEMENT = 10;
     
-    private int xHud = 10;
-    private int yHud = 10;
+    private final int xHud = 10;
+    private final int yHud = 10;
     
-    private ArrayList<Icone> icones = new ArrayList();
+    private final ArrayList<Icone> icones = new ArrayList();
     
+    private final GameInst jeu;
     
-    
-    private GameInst jeu;
-    
-    private VaisseauJoueur vaisseau;
+    private final Vaisseau vaisseau;
     
     private int missiles;
     private int vies;
@@ -97,13 +95,14 @@ public class ATH {
             this.vies = this.vaisseau.getVie();
             this.enleverIconeVie(vies);
         }
+        
         if (this.vaisseau.getMissiles() != this.missiles) {
             if (this.vaisseau.getMissiles() < this.missiles) {
                 this.enleverIconeMissile(this.vaisseau.getMissiles());
-            } else if (this.vaisseau.getMissiles() > this.missiles) {
+            } 
+            else if (this.vaisseau.getMissiles() > this.missiles) {
                 this.ajouterMissile(this.vaisseau.getMissiles()-1);
             }
-            
             this.missiles = this.vaisseau.getMissiles();
         }
     }

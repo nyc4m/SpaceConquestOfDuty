@@ -6,7 +6,6 @@
 package ATH;
 
 import iut.Game;
-import iut.Objet;
 
 /**
  *

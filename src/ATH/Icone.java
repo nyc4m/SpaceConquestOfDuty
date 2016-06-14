@@ -39,6 +39,6 @@ public class Icone extends iut.Objet{
 
     @Override
     public void move(long dt) {
-        }
+    }
     
 }

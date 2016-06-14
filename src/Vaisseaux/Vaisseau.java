@@ -35,12 +35,13 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
             case "VJ" : 
                 if (o.isFriend()) {
                     this.collisionBonus(o);
+                    this.jeu.getAth().majHUD();
                 }  
                 else if(o.isEnnemy()){
                     if(this.vie>0){
                         this.game().remove(o);
-                        this.vie--;
                         System.out.println("T as perdu une vie mauvais !");
+                        this.vie--;
                         this.jeu.getAth().majHUD();
                     }
                     else{

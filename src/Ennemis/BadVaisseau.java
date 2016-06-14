@@ -37,6 +37,16 @@ public abstract class BadVaisseau extends iut.ObjetTouchable{
             this.game().add(bl);
         }
     }
+
+    @Override
+    public boolean isFriend() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnnemy() {
+        return true;
+    }
     
     
     
