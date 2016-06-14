@@ -14,7 +14,7 @@ import iut.Game;
 public class IconeVie extends Icone{
     
     public IconeVie(Game g, double _x, double _y) {
-        super(g, "IconeVie", _x, _y);
+        super(g, "Vie", _x, _y);
     }
     
 }

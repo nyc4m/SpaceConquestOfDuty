@@ -8,6 +8,7 @@ package ElementJeu;
 import Ennemis.*;
 import iut.Game;
 import iut.Objet;
+import space.GameInst;
 
 /**
  *
@@ -15,7 +16,7 @@ import iut.Objet;
  */
 public class Vague {
     private final int level;
-    private Game g;
+    private GameInst g;
     
     public Vague(Game g,int _level) {
         this.level = _level;

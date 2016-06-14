@@ -12,6 +12,7 @@ import iut.Game;
 import iut.Objet;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import space.GameInst;
 
 /**
  *
@@ -22,6 +23,7 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
     protected int missiles;
     protected double Vx;
     protected double Vy;
+    private GameInst jeu;
     
     public Vaisseau(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
@@ -37,14 +39,16 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                 else if(o.isEnnemy()){
                     if(this.vie>0){
                         this.game().remove(o);
-                        this.vie-=1;
+                        this.vie--;
                         System.out.println("T as perdu une vie mauvais !");
+                        this.jeu.getAth().majHUD();
                     }
                     else{
                         System.out.println("Ship damaged BIATCH !!");
                         this.game().remove(this);
                         Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
                         this.game().add(e);
+                        this.jeu.getAth().majHUD();
                     }
                 }
                 break;
@@ -59,6 +63,7 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                     this.game().add(v);
                     this.game().addKeyListener(v);
                     this.game().add(v);
+                    this.jeu.getAth().majHUD();
                 }
                 break;
         }
@@ -73,6 +78,7 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                 try {
                     this.ajouterMissile();
                     System.out.println("[INFO]Missile added");
+                    this.jeu.getAth().majHUD();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -184,6 +190,14 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
     
     public boolean tropDeMissile(){
         return this.missiles>=3;
+    }
+
+    public int getVie() {
+        return vie;
+    }
+
+    public int getMissiles() {
+        return missiles;
     }
     
     

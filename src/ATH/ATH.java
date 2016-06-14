@@ -5,7 +5,7 @@
  */
 package ATH;
 
-import ElementJeu.VaisseauJoueur;
+import Vaisseaux.*;
 import java.util.ArrayList;
 import space.GameInst;
 

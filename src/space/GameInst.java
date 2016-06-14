@@ -5,6 +5,7 @@
  */
 package space;
 
+import ATH.ATH;
 import ElementJeu.Vague;
 import Ennemis.BVaisseau1;
 import IHM.GagneF;
@@ -25,7 +26,7 @@ import javax.imageio.ImageIO;
  */
 public class GameInst extends Game{
 
-    VaisseauJoueur vaisseau;
+    private ATH _ath;
     
     public GameInst() {
         super(1024, 768, "Space");
@@ -35,12 +36,14 @@ public class GameInst extends Game{
     protected void createObjects() {
         //ajout vaisseau
         VaisseauJoueur v = new VaisseauJoueur(this, 30, this.height()-80);
-        this.vaisseau = v;
+        this._ath = new ATH(this,v);
         this.addKeyInteractiveObject(v);
         this.add(v);
         //test ajout météor
         Vague va = new Vague(this, 1);
         this.add(va.makeEnemy("M1", 500, 200));
+        
+        
         
         
         BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
@@ -76,14 +79,8 @@ public class GameInst extends Game{
         f.setVisible(true);
     }
 
-    public VaisseauJoueur getVaisseau(){
-        return this.vaisseau;
+    public ATH getAth() {
+        return _ath;
     }
-    
-    public void setVaisseau(VaisseauJoueur v){
-        this.vaisseau = v;
-    }
-    
-    
     
 }
