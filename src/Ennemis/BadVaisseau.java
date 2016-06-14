@@ -29,9 +29,8 @@ public abstract class BadVaisseau extends iut.ObjetTouchable{
 
     @Override
     public void move(long l){
-        int a = this.alea(0, 20);
-        int b = this.alea(0, 20);
-        System.out.println(a);
+        int a = this.alea(0, 40);
+        int b = this.alea(0, 40);
         if(a==b){
             badLaser bl = new badLaser(this.game(), this.getMiddleX()-80, this.getMiddleY());
             this.game().add(bl);

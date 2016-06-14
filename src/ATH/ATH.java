@@ -14,22 +14,22 @@ import space.GameInst;
  * @author Baptiste
  */
 public final class ATH {
-    private final int LARGEUR_ICONE_VIE = 50;
-    private final int LARGEUR_ICONE_MISSILE = 50;
-    private final int HAUTEUR_ICONE_MISSILE = 50;
-    private final int ESPACEMENT = 10;
+    protected final int LARGEUR_ICONE_VIE = 50;
+    protected final int LARGEUR_ICONE_MISSILE = 50;
+    protected final int HAUTEUR_ICONE_MISSILE = 50;
+    protected final int ESPACEMENT = 10;
     
-    private final int xHud = 10;
-    private final int yHud = 10;
+    protected final int xHud = 10;
+    protected final int yHud = 10;
     
-    private final ArrayList<Icone> icones = new ArrayList();
+    protected final ArrayList<Icone> icones = new ArrayList();
     
-    private final GameInst jeu;
+    protected final GameInst jeu;
     
-    private final Vaisseau vaisseau;
+    protected final Vaisseau vaisseau;
     
-    private int missiles;
-    private int vies;
+    protected int missiles;
+    protected int vies;
     
     public ATH(GameInst g, VaisseauJoueur v){
         this.jeu = g;

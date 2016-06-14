@@ -23,7 +23,7 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
     protected int missiles;
     protected double Vx;
     protected double Vy;
-    private GameInst jeu;
+    protected GameInst jeu;
     
     public Vaisseau(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
@@ -31,11 +31,11 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
 
     @Override
     public void effect(Objet o) {
+        System.out.println(this.toString());
         switch(this.toString()){
             case "VJ" : 
                 if (o.isFriend()) {
                     this.collisionBonus(o);
-                    this.jeu.getAth().majHUD();
                 }  
                 else if(o.isEnnemy()){
                     if(this.vie>0){

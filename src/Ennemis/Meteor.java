@@ -32,8 +32,10 @@ public abstract class Meteor extends iut.ObjetTouchable{
     
     @Override
     public void effect(Objet objet) {
-        if(this.getLeft()<0){
-            System.out.println("sortie d'écran");
+        if(this.collision(objet)){
+            if(objet.isFriend()){
+                this.game().remove(this);
+            }
         }
     }
     

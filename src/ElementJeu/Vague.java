@@ -16,20 +16,15 @@ import space.GameInst;
  */
 public class Vague {
     private final int level;
-    private GameInst g;
+    private Game g;
     
     public Vague(Game g,int _level) {
         this.level = _level;
     }
     
     public void init(){
-        switch(this.level){
-            case 1 : 
                 this.g.add((Objet) this.makeEnemy("M1", this.g.getWidth(), this.g.getHeight()));
-                break;
-            case 2 :
-                break;
-        }
+            
     }
     
     public Objet makeEnemy(String type, int x, int y){
