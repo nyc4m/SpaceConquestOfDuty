@@ -33,7 +33,6 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
 
     @Override
     public void effect(Objet o) {
-        System.out.println(this.toString());
         switch(this.toString()){
             case "VJ" : 
                 if (o.isFriend()) {
@@ -42,8 +41,8 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                 else if(o.isEnnemy()){
                     if(this.vie>0){
                         this.game().remove(o);
-                        System.out.println("T as perdu une vie mauvais !");
                         this.vie--;
+                        System.out.println("vie perdu , vie restante : "+ this.vie);
                         //this.jeu.getAth().majHUD();
                     }
                     else{
@@ -89,11 +88,11 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
     }
     
     public void ajouterBouclier() {
-        this.game().remove(this);
-        this.game().removeKeyListener(this);
         VaisseauProtege v = new VaisseauProtege(this.game(), this.getLeft(), this.getBottom() - 87);
         this.game().add(v);
         this.game().addKeyListener(v);
+        this.game().remove(this);
+        this.game().removeKeyListener(this);
     }
 
     @Override

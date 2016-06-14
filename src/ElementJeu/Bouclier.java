@@ -20,6 +20,5 @@ public class Bouclier extends Bonus {
     @Override
     public String toString() {
         return "B";
-    }
-
+    }        
 }

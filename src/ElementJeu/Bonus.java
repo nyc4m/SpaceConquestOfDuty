@@ -47,7 +47,6 @@ public abstract class Bonus extends iut.ObjetTouchable {
     @Override
     public boolean isFriend() {
         return true;
-
     }
 
     @Override
