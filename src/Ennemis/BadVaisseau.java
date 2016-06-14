@@ -5,6 +5,7 @@
  */
 package Ennemis;
 
+import TirVaisseau.badLaser;
 import iut.Game;
 
 /**
@@ -25,5 +26,18 @@ public abstract class BadVaisseau extends iut.ObjetTouchable{
     public int alea(int min, int max){
         return min+(int)(Math.random()*((max-min)+1));
     }
+
+    @Override
+    public void move(long l){
+        int a = this.alea(0, 20);
+        int b = this.alea(0, 20);
+        System.out.println(a);
+        if(a==b){
+            badLaser bl = new badLaser(this.game(), this.getMiddleX()-80, this.getMiddleY());
+            this.game().add(bl);
+        }
+    }
+    
+    
     
 }

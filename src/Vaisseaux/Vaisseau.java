@@ -159,7 +159,7 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
         space = 32;
         m = 77;
         
-        if(kC==38 || kC==40){
+        if(kC==up || kC==down){
             this.Vy = 0;
         }
     }

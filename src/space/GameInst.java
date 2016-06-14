@@ -5,9 +5,10 @@
  */
 package space;
 
-import Vaisseaux.VaisseauJoueur;
 import ElementJeu.Vague;
+import Ennemis.BVaisseau1;
 import IHM.GagneF;
+import Vaisseaux.VaisseauJoueur;
 import iut.Game;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -42,8 +43,8 @@ public class GameInst extends Game{
         this.add(va.makeEnemy("M1", 500, 200));
         
         
-//        BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
-//        this.add(bv1);
+        BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
+        this.add(bv1);
 //        
 //        Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
 //        this.add(b);
