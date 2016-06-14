@@ -19,26 +19,6 @@ public class BVaisseau2 extends BadVaisseau{
     }
 
     @Override
-    public void effect(Objet objet) {
-        
-    }
-
-    @Override
-    public boolean isFriend() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnnemy() {
-        return true;
-    }
-
-    @Override
-    public void move(long l) {
-        
-    }
-
-    @Override
     public String toString() {
         return "BV2";
     }

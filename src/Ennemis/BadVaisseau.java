@@ -7,6 +7,7 @@ package Ennemis;
 
 import TirVaisseau.badLaser;
 import iut.Game;
+import iut.Objet;
 
 /**
  *
@@ -45,6 +46,13 @@ public abstract class BadVaisseau extends iut.ObjetTouchable{
     @Override
     public boolean isEnnemy() {
         return true;
+    }
+
+    @Override
+    public void effect(Objet objet) {
+        if("T".equals(objet.toString())){
+            System.out.println("contact tir");
+        }
     }
     
     

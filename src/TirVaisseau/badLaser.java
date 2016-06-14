@@ -40,5 +40,8 @@ public class badLaser extends Tir{
 
     @Override
     public void effect(Objet objet) {
+        if(objet.isFriend()){
+            this.game().remove(this);
+        }
     }
 }

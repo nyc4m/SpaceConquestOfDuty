@@ -15,8 +15,8 @@ public class VaisseauJoueur extends Vaisseau {
 
     public VaisseauJoueur(Game g, int x, int y) {
         super(g, "vaisseau", x, y);
-        this.missiles = 3;
-        this.vie = 3;
+        this.missiles = super.missiles;
+        this.vie = super.vie;
     }
     
     @Override

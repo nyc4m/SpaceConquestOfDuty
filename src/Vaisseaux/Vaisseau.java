@@ -27,6 +27,8 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
     
     public Vaisseau(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
+        this.vie = 3;
+        this.missiles = 3;
     }
 
     @Override
@@ -42,20 +44,19 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                         this.game().remove(o);
                         System.out.println("T as perdu une vie mauvais !");
                         this.vie--;
-                        this.jeu.getAth().majHUD();
+                        //this.jeu.getAth().majHUD();
                     }
                     else{
                         System.out.println("Ship damaged BIATCH !!");
                         this.game().remove(this);
                         Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
                         this.game().add(e);
-                        this.jeu.getAth().majHUD();
+                        //this.jeu.getAth().majHUD();
                     }
                 }
                 break;
             case "VP" : 
                 if(o.isEnnemy()){
-                    //GameInst game = (GameInst)this.game();
                     VaisseauJoueur v = new VaisseauJoueur(this.game(), this.getLeft(), this.getBottom()-87);
 
                     this.game().remove(this);
@@ -64,7 +65,7 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                     this.game().add(v);
                     this.game().addKeyListener(v);
                     this.game().add(v);
-                    this.jeu.getAth().majHUD();
+                    //this.jeu.getAth().majHUD();
                 }
                 break;
         }

@@ -15,6 +15,8 @@ public class VaisseauProtege extends Vaisseau{
     
     public VaisseauProtege(Game g, int x, int y) {
         super(g, "vaisseau_shield", x, y);
+        this.vie = super.vie;
+        this.missiles = super.missiles;
     }
 
     @Override

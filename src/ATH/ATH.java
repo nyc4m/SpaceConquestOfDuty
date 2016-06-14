@@ -91,17 +91,17 @@ public final class ATH {
     }
     
     public void majHUD() {
-        if (this.vaisseau.getVie() != this.vies) {
+        if(this.vaisseau.getVie() != this.vies) {
             this.vies = this.vaisseau.getVie();
-            this.enleverIconeVie(vies);
+            //this.enleverIconeVie(vies);
         }
         
-        if (this.vaisseau.getMissiles() != this.missiles) {
+        if(this.vaisseau.getMissiles() != this.missiles) {
             if (this.vaisseau.getMissiles() < this.missiles) {
-                this.enleverIconeMissile(this.vaisseau.getMissiles());
+                //this.enleverIconeMissile(this.vaisseau.getMissiles());
             } 
             else if (this.vaisseau.getMissiles() > this.missiles) {
-                this.ajouterMissile(this.vaisseau.getMissiles()-1);
+               // this.ajouterMissile(this.vaisseau.getMissiles()-1);
             }
             this.missiles = this.vaisseau.getMissiles();
         }

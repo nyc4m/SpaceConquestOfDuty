@@ -19,11 +19,6 @@ public class BVaisseau1 extends BadVaisseau{
     }
 
     @Override
-    public void effect(Objet objet) {
-        
-    }
-
-    @Override
     public String toString() {
         return "BV1";
     }
