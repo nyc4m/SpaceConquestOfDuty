@@ -73,7 +73,8 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
     public void collisionBonus(Objet o) {
         switch (o.toString()) {
             case "B":
-                this.ajouterBouclier();
+                System.out.println("ajout bouclier");
+                //this.ajouterBouclier();
                 break;
             case "M":
                 try {

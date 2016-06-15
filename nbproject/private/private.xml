@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/space/GameInst.java</file>
             <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/ElementJeu/Missile.java</file>
+            <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/ElementJeu/Explo.java</file>
+            <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/space/Space.java</file>
+            <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/Vaisseaux/Vaisseau.java</file>
             <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/ElementJeu/Bouclier.java</file>
+            <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/Vaisseaux/VaisseauJoueur.java</file>
             <file>file:/C:/Users/Florian/Desktop/NetBeansProjects/SpaceConquestOfDuty/src/ElementJeu/Bonus.java</file>
         </group>
     </open-files>
