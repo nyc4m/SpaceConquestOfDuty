@@ -6,6 +6,7 @@
 package ElementJeu;
 
 import Ennemis.*;
+import IHM.GagneF;
 import iut.Game;
 import iut.Objet;
 
@@ -15,58 +16,50 @@ import iut.Objet;
  */
 public class Vague {
 
-    private final int level;
-    private Game g;
+    private  int level;
 
-    public Vague(Game g, int _level) {
+
+    public Vague(int _level) {
         this.level = _level;
-        
+
     }
-    
-
-
-    public void init(Game g2) {
+/**
+ * Méthode qui initialise et qui palce les objets en fonction du niveau
+ * @param g L'instance du jeux
+ */
+    public void init(Game g) {
+        Meteor1 m1 = new Meteor1(g, g.getWidth() - 50, g.getHeight() / 3, -6, 0);
+        Meteor m2 = new Meteor2(g, g.getWidth() - 50, g.getHeight() / 2, -5,0);
+        Meteor m3 = new Meteor3(g, g.getWidth() - 50, g.getHeight() / 2, -3, 0);
+        BadVaisseau bv1 = new BVaisseau1(g, g.getX()+900,g.getY());
+        
+       
         switch (this.level) {
             case 1:
-                g2.add((Objet) this.makeEnemy("M1", g2.getWidth(), g2.getHeight()));
-               
+                g.add(m1);
+                g.add(bv1);
                 break;
             case 2:
-               g2.add((Objet) this.makeEnemy("M1", g2.getWidth(), g2.getHeight()));
-               g2.add((Objet) this.makeEnemy("M2", g2.getWidth(), g2.getHeight()));
+                g.add(m1);
+                g.add(m2);
+                g.add(bv1);
                 break;
             case 3:
-                g2.add((Objet) this.makeEnemy("M1", g2.getWidth(), g2.getHeight()));
-                g2.add((Objet) this.makeEnemy("M2", g2.getWidth(), g2.getHeight()));
-                g2.add((Objet) this.makeEnemy("M3", g2.getWidth(), g2.getHeight()));
+                g.add(m1);
+                g.add(m2);
+                g.add(m3);
+                g.add(bv1);
+                break;
+            case 4:
+               System.out.println("Victoire");
         }
     }
-
-    public Objet makeEnemy(String type, int x, int y) {
-        Objet a = null;
-        switch (type) {
-            case "M1":
-                Meteor1 m1 = new Meteor1(this.g, x, y, Math.PI, 5);
-                a = m1;
-                break;
-            case "M2":
-                Meteor2 m2 = new Meteor2(this.g, x, y, Math.PI, 3);
-                a = m2;
-                break;
-            case "M3":
-                Meteor3 m3 = new Meteor3(this.g, x, y, Math.PI, 2);
-                a = m3;
-                break;
-            case "BV1":
-                BVaisseau1 bv1 = new BVaisseau1(this.g, x, y);
-                a = bv1;
-                break;
-        }
-        return a;
+    /**
+     * Augmente le niveau
+     */
+    public void levelUp(){
+        
+        this.level +=1;
     }
-
-    
-  
-    
 }
 
