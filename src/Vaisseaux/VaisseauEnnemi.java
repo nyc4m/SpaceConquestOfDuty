@@ -6,15 +6,38 @@
 package Vaisseaux;
 
 import iut.Game;
+import iut.Objet;
 
 /**
  *
  * @author Baptiste
  */
-public class VaisseauEnnemi extends Vaisseau{
-    
+public class VaisseauEnnemi extends Vaisseau {
+
     public VaisseauEnnemi(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
     }
-    
+
+    @Override
+    public void effect(Objet o) {
+        switch (o.toString()) {
+            case "T":
+                this.game().remove(this);
+                break;
+            default:
+                System.out.println("Collission avec un vaisseau ennemi");
+                break;
+        }
+    }
+
+    @Override
+    public boolean isFriend() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnnemy() {
+        return true;
+    }
+
 }

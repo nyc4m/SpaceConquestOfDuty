@@ -31,9 +31,6 @@ public abstract class Vaisseau extends iut.ObjetTouchable{
 
     @Override
     public abstract void effect(Objet o);
-
-    public abstract void collisionBonus(Objet o);
-
     
 
     public abstract boolean isFriend();

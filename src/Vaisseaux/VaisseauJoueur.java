@@ -14,21 +14,39 @@ import space.GameInst;
  *
  * @author Florian
  */
-public class VaisseauJoueur extends Vaisseau{
+public class VaisseauJoueur extends VaisseauControle {
 
     public VaisseauJoueur(Game g, int x, int y) {
         super(g, "vaisseau", x, y);
-        this.jeu = (GameInst)g;
+        this.jeu = (GameInst) g;
     }
-    
+
     @Override
     public String toString() {
         return "VJ";
     }
 
-    @Override
     public void collisionBonus(Objet o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch (o.toString()) {
+            case "V":
+                try {
+                    this.ajouterVie();
+                    this.jeu.getAth().majHUD();
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+                break;
+            case "Mi":
+                try {
+                    this.ajouterMissile();
+                    this.jeu.getAth().majHUD();
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+
+            case "B" : this.ajouterBouclier();
+            break;
+        }
     }
 
     @Override
@@ -43,16 +61,16 @@ public class VaisseauJoueur extends Vaisseau{
 
     @Override
     public void effect(Objet o) {
-        switch(o.toString()){
-            case "B" : this.ajouterBouclier();
+        if(o.isFriend()){
+            this.collision(o);
         }
     }
-    
+
     public void ajouterBouclier() {
         VaisseauProtege v = new VaisseauProtege(this.game(), this.getLeft(), this.getBottom() - 87);
         this.game().add(v);
-        this.game().addKeyListener(v);
+        this.game().addKeyListener((KeyListener) v);
         this.game().remove(this);
-        this.game().removeKeyListener(this);
+        this.game().removeKeyListener((KeyListener) this);
     }
 }

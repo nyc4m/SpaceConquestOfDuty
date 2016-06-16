@@ -8,19 +8,23 @@ package Vaisseaux;
 import TirVaisseau.TLaser;
 import TirVaisseau.TMissile;
 import iut.Game;
+import iut.Objet;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import space.GameInst;
 
 /**
  *
  * @author Baptiste
  */
-public class VaisseauControle extends Vaisseau implements KeyListener{
+public abstract class VaisseauControle extends Vaisseau implements KeyListener{
     
     protected int missiles = 3;
+    protected GameInst jeu;
     
     public VaisseauControle(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
+        this.jeu = (GameInst) g;
     }
     
     @Override
@@ -119,5 +123,22 @@ public class VaisseauControle extends Vaisseau implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void effect(Objet o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public abstract void collisionBonus(Objet o);
+
+    @Override
+    public boolean isFriend() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isEnnemy() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
