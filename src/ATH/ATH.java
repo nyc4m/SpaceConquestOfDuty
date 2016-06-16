@@ -27,12 +27,12 @@ public final class ATH {
 
     protected final GameInst jeu;
 
-    protected final Vaisseau vaisseau;
+    protected final VaisseauControle vaisseau;
 
     protected int missiles;
     protected int vies;
 
-    public ATH(GameInst g, VaisseauJoueur v) {
+    public ATH(GameInst g, VaisseauControle v) {
         this.jeu = g;
         this.vaisseau = v;
         this.missiles = v.getMissiles();

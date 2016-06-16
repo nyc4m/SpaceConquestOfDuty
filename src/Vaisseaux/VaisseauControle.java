@@ -5,6 +5,7 @@
  */
 package Vaisseaux;
 
+import ElementJeu.Explo;
 import TirVaisseau.TLaser;
 import TirVaisseau.TMissile;
 import iut.Game;
@@ -102,6 +103,21 @@ public abstract class VaisseauControle extends Vaisseau implements KeyListener{
         }
 
     }
+    
+    public boolean mort(){
+        return this.vie <= 0;
+    }
+    
+    public void enleverVie() throws Exception{
+        if(mort()){
+            System.out.println("Le vaisseau est détruit.");
+            this.game().remove(this);
+            this.game().add(new Explo( this.game(), this.getLeft(), this.getBottom()-87));
+        }else{
+            this.vie--;
+            this.jeu.getAth().majHUD();
+        }
+    }
 
 
     public void ajouterMissile() throws Exception {
@@ -124,21 +140,28 @@ public abstract class VaisseauControle extends Vaisseau implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {}
 
-    @Override
-    public void effect(Objet o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public abstract void effect(Objet o);
 
     public abstract void collisionBonus(Objet o);
 
     @Override
     public boolean isFriend() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isEnnemy() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
+
+    public int getMissiles() {
+        return missiles;
+    }
+
+    public int getVie() {
+        return vie;
+    }
+    
+    
     
 }

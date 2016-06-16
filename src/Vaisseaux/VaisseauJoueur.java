@@ -43,10 +43,13 @@ public class VaisseauJoueur extends VaisseauControle {
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
+                break;
 
-            case "B" : this.ajouterBouclier();
-            break;
+            case "B":
+                this.ajouterBouclier();
+                break;
         }
+        this.game().remove(o);
     }
 
     @Override
@@ -61,8 +64,14 @@ public class VaisseauJoueur extends VaisseauControle {
 
     @Override
     public void effect(Objet o) {
-        if(o.isFriend()){
-            this.collision(o);
+        if (o.isFriend() && !o.toString().equals("T")) {
+            this.collisionBonus(o);
+        }else{
+            try{
+                this.enleverVie();
+            }catch(Exception e){
+                System.err.println(e.getMessage());
+            }
         }
     }
 
