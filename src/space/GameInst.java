@@ -50,6 +50,9 @@ public class GameInst extends Game{
         Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
         this.add(m);
         
+        Vie vie = new Vie(this, this.getWidth()-50, this.getHeight()/4);
+        this.add(vie);
+        
     }
 
     @Override
