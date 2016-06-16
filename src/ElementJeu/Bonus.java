@@ -10,9 +10,9 @@ import iut.Objet;
 
 /**
  *
- * @author bapt
+ * @author Baptiste
  */
-public abstract class Bonus extends iut.ObjetTouchable {
+public class Bonus extends iut.ObjetTouchable {
 
     protected final double vitesse = 2;
 
@@ -25,20 +25,24 @@ public abstract class Bonus extends iut.ObjetTouchable {
         if (o.isFriend()) {
             switch (o.toString()) {
                 case "B":
-                    System.out.println("[INFO] Collision avec bouclier");
+                    System.out.println("[INFO] Colision avec bouclier");
                     break;
                 case "Mi":
-                    System.out.println("[INFO]Collision avec Missile");
+                    System.out.println("[INFO] Colision avec Missile");
                     break;
                 case "L":
-                    System.out.println("[INFO]Collission avec un laser");
+                    System.out.println("[INFO] Colision avec un laser");
                     break;
                 case "T" :
-                    System.out.println("[INFO]Colission avec un tir");
+                    System.out.println("[INFO] Colision avec un tir");
                     break;
                 default:
                     this.game().remove(this);
                     break;
+            }
+        }else{
+            if(o.toString().equals("BadL")){
+                //System.out.println("[INFO] Colision avec un laser ennemi");
             }
         }
     }
@@ -57,6 +61,10 @@ public abstract class Bonus extends iut.ObjetTouchable {
     @Override
     public void move(long dt) {
         this.move(-this.vitesse,0);
+    }
+    
+    public String toString(){
+        return "Bonus";
     }
 
     public double getVitesse() {

@@ -87,21 +87,21 @@ public final class ATH {
     public void ajouterMissile(int qMissile) {
         IconeMissile m = new IconeMissile(this.jeu, this.xHud + (this.ESPACEMENT + this.LARGEUR_ICONE_MISSILE) * qMissile, this.ESPACEMENT + this.HAUTEUR_ICONE_MISSILE + this.yHud);
         this.jeu.add(m);
-        this.icones.set(qMissile, m);
+        this.icones.set(qMissile+3, m);
     }
     
     public void majHUD() {
         if(this.vaisseau.getVie() != this.vies) {
             this.vies = this.vaisseau.getVie();
-            //this.enleverIconeVie(vies);
+            this.enleverIconeVie(vies);
         }
         
         if(this.vaisseau.getMissiles() != this.missiles) {
             if (this.vaisseau.getMissiles() < this.missiles) {
-                //this.enleverIconeMissile(this.vaisseau.getMissiles());
+                this.enleverIconeMissile(this.vaisseau.getMissiles());
             } 
             else if (this.vaisseau.getMissiles() > this.missiles) {
-               // this.ajouterMissile(this.vaisseau.getMissiles()-1);
+               this.ajouterMissile(this.vaisseau.getMissiles()-1);
             }
             this.missiles = this.vaisseau.getMissiles();
         }

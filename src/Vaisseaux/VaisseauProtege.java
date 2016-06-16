@@ -9,7 +9,7 @@ import iut.Game;
 
 /**
  *
- * @author bapt
+ * @author Baptiste
  */
 public class VaisseauProtege extends Vaisseau{
     

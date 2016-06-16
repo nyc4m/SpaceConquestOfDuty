@@ -9,7 +9,7 @@ import space.GameInst;
 
 /**
  *
- * @author bapt
+ * @author Baptiste
  */
 public class Bouclier extends Bonus {
     

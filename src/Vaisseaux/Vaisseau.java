@@ -43,14 +43,14 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                         this.game().remove(o);
                         this.vie--;
                         System.out.println("vie perdu , vie restante : "+ this.vie);
-                        //this.jeu.getAth().majHUD();
+                        this.jeu.getAth().majHUD();
                     }
                     else{
-                        System.out.println("Ship damaged BIATCH !!");
+                        System.out.println("Ship destroyed BIATCH !!");
                         this.game().remove(this);
                         Explo e = new Explo(this.game(), this.getMiddleX()-85, this.getMiddleY()-85);
                         this.game().add(e);
-                        //this.jeu.getAth().majHUD();
+                        this.jeu.getAth().majHUD();
                     }
                 }
                 break;
@@ -64,7 +64,6 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
                     this.game().add(v);
                     this.game().addKeyListener(v);
                     this.game().add(v);
-                    //this.jeu.getAth().majHUD();
                 }
                 break;
         }
@@ -74,12 +73,11 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
         switch (o.toString()) {
             case "B":
                 System.out.println("ajout bouclier");
-                //this.ajouterBouclier();
+                this.ajouterBouclier();
                 break;
-            case "M":
+            case "Mi":
                 try {
                     this.ajouterMissile();
-                    System.out.println("[INFO]Missile added");
                     this.jeu.getAth().majHUD();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -150,6 +148,8 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
             TMissile tM = new TMissile(this.game(), this.getMiddleX() + 50, this.getMiddleY());
             this.game().add(tM);
             this.missiles--;
+            System.out.println("[INFO] Missile tiré, missiles = " + missiles);
+            this.jeu.getAth().majHUD();
         }else{
             throw new Exception("Vous n'avez plus de missiles");
         }
@@ -179,10 +179,10 @@ public abstract class Vaisseau extends iut.ObjetTouchable implements KeyListener
     
     public void ajouterMissile() throws Exception {
         if (this.tropDeMissile()) {
-            throw new Exception("Too much missiles");
+            throw new Exception("Trop de missiles");
         } else {
             this.missiles++;
-            System.out.println("missiles = " + missiles);
+            System.out.println("[INFO] Missile ajouté, missiles = " + missiles);
         }
     }
 

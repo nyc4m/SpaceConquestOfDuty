@@ -6,6 +6,7 @@
 package Vaisseaux;
 
 import iut.Game;
+import space.GameInst;
 
 /**
  *
@@ -17,6 +18,7 @@ public class VaisseauJoueur extends Vaisseau {
         super(g, "vaisseau", x, y);
         this.missiles = super.missiles;
         this.vie = super.vie;
+        this.jeu = (GameInst)g;
     }
     
     @Override

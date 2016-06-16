@@ -12,7 +12,7 @@ import iut.Objet;
  *
  * @author Florian
  */
-public abstract class Tir extends iut.ObjetTouchable{
+public class Tir extends iut.ObjetTouchable{
 
     public Tir(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
