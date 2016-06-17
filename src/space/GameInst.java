@@ -16,6 +16,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -27,6 +28,10 @@ import javax.imageio.ImageIO;
 public class GameInst extends Game{
 
     private ATH _ath;
+    
+    private ArrayList ennemi = new ArrayList();
+    
+    private int niveau = 1;
     
     public GameInst() {
         super(1024, 768, "Space");
@@ -43,21 +48,8 @@ public class GameInst extends Game{
         this.addKeyInteractiveObject(v);
         this.add(v);
         //test ajout météor
-         Vague va = new Vague(1);     
-         va.init(this);
-       
-        
-        BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
-        this.add(bv1);
-        
-        Bouclier b = new Bouclier(this, this.getWidth()-50, this.getHeight()/2);
-        this.add(b);
-        
-        Missile m = new Missile(this, this.getWidth()-50, this.getHeight()/3);
-        this.add(m);
-        
-        Vie vie = new Vie(this, this.getWidth()-50, this.getHeight()/4);
-        this.add(vie);
+         Vague va = new Vague(this, this.niveau);
+         this.ennemi = va.getElement();
         
     }
 
@@ -86,5 +78,24 @@ public class GameInst extends Game{
     public ATH getAth() {
         return _ath;
     }
+
+    public ArrayList getEnnemi() {
+        return ennemi;
+    }
+
+    public void setEnnemi(ArrayList ennemi) {
+        this.ennemi = ennemi;
+    }
+    
+    
+
+    public int getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(int niveau) {
+        this.niveau = niveau;
+    }
+    
     
 }

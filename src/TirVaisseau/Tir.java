@@ -5,25 +5,36 @@
  */
 package TirVaisseau;
 
+import ElementJeu.Vague;
 import iut.Game;
 import iut.Objet;
+import space.GameInst;
 
 /**
  *
  * @author Florian
  */
 public class Tir extends iut.ObjetTouchable{
+    
+    private GameInst jeu;
 
     public Tir(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
+        this.jeu = (GameInst)g;
     }
 
     @Override
     public void effect(Objet objet) {
         if(this.collision(objet)){
             if(objet.isEnnemy()){
-                //this.game().remove(objet);
+                this.game().remove(objet);
                 this.game().remove(this);
+                this.jeu.getEnnemi().remove(objet);
+                if(this.jeu.getEnnemi().isEmpty()){
+                    this.jeu.setNiveau(this.jeu.getNiveau()+1);
+                    Vague va = new Vague(this.jeu, this.jeu.getNiveau());
+                    this.jeu.setEnnemi(va.getElement());
+                }
             }
         }
     }
