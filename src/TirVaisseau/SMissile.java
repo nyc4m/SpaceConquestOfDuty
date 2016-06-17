@@ -25,6 +25,7 @@ public class SMissile extends Tir{
             if(objet.isEnnemy()){
                 this.game().remove(objet);
                 this.game().remove(this);
+                super.majVague();
             }
         }
     }

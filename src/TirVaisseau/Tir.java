@@ -28,10 +28,14 @@ public class Tir extends iut.ObjetTouchable{
         if(this.collision(objet)){
             if(objet.isEnnemy()){
                 this.supprimerEnnemi(objet);
-                if(this.aucunEnnemi()){
-                    this.nouvelleVague();
-                }
+                this.majVague();
             }
+        }
+    }
+    
+    public void majVague(){
+        if(this.aucunEnnemi()){
+            this.nouvelleVague();
         }
     }
     
