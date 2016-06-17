@@ -30,6 +30,9 @@ public class TMissile extends Tir{
                 this.game().add(smh);
                 this.game().add(smb);
                 this.game().add(smc);
+                if(super.aucunEnnemi()){
+                    super.nouvelleVague();
+                }
         
             }
         }
