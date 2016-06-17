@@ -5,6 +5,7 @@
  */
 package ElementJeu;
 
+import iut.Game;
 import space.GameInst;
 
 /**
@@ -13,7 +14,7 @@ import space.GameInst;
  */
 public class Bouclier extends Bonus {
     
-    public Bouclier(GameInst g, int x, int y) {
+    public Bouclier(Game g, int x, int y) {
         super(g, "shield", x, y);
     }
 
