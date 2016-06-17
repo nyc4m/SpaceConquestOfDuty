@@ -15,15 +15,13 @@ import iut.Objet;
 public abstract class Meteor extends iut.ObjetTouchable{
     protected double dirRad;
     protected double speed;
-    private  int getx;
-    private int gety;
+   
     
     public Meteor(Game g, String nom, int x, int y, double _dirRad, double _speed) {
         super(g, nom, x, y);
         this.dirRad = _dirRad;
         this.speed = _speed;
-        this.getx=x;
-        this.gety=y;
+     
     }
     
     @Override
