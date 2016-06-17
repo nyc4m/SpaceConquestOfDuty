@@ -111,4 +111,12 @@ public final class ATH {
             this.missiles = this.vaisseau.getMissiles();
         }
     }
+
+    public int getMissiles() {
+        return missiles;
+    }
+
+    public int getVies() {
+        return vies;
+    }
 }

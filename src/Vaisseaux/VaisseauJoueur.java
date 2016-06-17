@@ -20,6 +20,13 @@ public class VaisseauJoueur extends VaisseauControle {
         super(g, "vaisseau", x, y);
         this.jeu = (GameInst) g;
     }
+    
+    public VaisseauJoueur(Game g, int x, int y, int vie, int missiles){
+        super(g, "vaisseau", x, y);
+        this.jeu = (GameInst) g;
+        this.vie = vie;
+        this.missiles = missiles;
+    }
 
     @Override
     public String toString() {

@@ -18,6 +18,11 @@ public class VaisseauProtege extends VaisseauControle {
         super(g, "vaisseau_shield", x, y);
         this.vie = super.vie;
     }
+    
+    public VaisseauProtege(Game g, int x, int y, int missiles) {
+        super(g, "vaisseau_shield", x, y);
+        this.missiles = missiles;
+    }
 
     @Override
     public String toString() {
@@ -29,7 +34,7 @@ public class VaisseauProtege extends VaisseauControle {
         if (o.isFriend() && !o.toString().equals("VJ")) {
             this.collisionBonus(o);
         } else {
-            VaisseauJoueur v = new VaisseauJoueur(this.game(), this.getLeft(), this.getBottom() - 87);
+            VaisseauJoueur v = new VaisseauJoueur(this.game(), this.getLeft(), this.getBottom() - 87, this.jeu.getAth().getVies(), this.jeu.getAth().getMissiles());
             this.game().removeKeyListener(this);
             this.game().remove(this);
 
