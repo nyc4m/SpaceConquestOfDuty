@@ -24,11 +24,8 @@ public class VaisseauEnnemi extends Vaisseau {
             case "T":
                 this.game().remove(this);
                 break;
-            default:
-                System.out.println("Collission avec un vaisseau ennemi");
-                break;
+                }
         }
-    }
 
     @Override
     public boolean isFriend() {

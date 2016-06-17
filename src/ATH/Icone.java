@@ -12,7 +12,7 @@ import iut.Objet;
  *
  * @author bapt
  */
-public class Icone extends iut.Objet{
+public class Icone extends iut.Objet {
 
     public Icone(Game g, String nom, double _x, double _y) {
         super(g, nom, _x, _y);
@@ -25,7 +25,8 @@ public class Icone extends iut.Objet{
 
     @Override
     public void effect(Objet o) {
-        System.out.println("[INFO] Colision avec Icone");}
+        System.out.println("[INFO] Colision avec Icone");
+    }
 
     @Override
     public boolean isFriend() {
@@ -40,5 +41,5 @@ public class Icone extends iut.Objet{
     @Override
     public void move(long dt) {
     }
-    
+
 }

@@ -27,11 +27,13 @@ public class VaisseauJoueur extends VaisseauControle {
     }
 
     public void collisionBonus(Objet o) {
+        boolean bonus = false; //Determine si l'objet est un bonus, utilisé en fin de méthode pour savoir s'il faut supprimer l'objet.
         switch (o.toString()) {
             case "V":
                 try {
                     this.ajouterVie();
                     this.jeu.getAth().majHUD();
+                    bonus = true;
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -40,6 +42,7 @@ public class VaisseauJoueur extends VaisseauControle {
                 try {
                     this.ajouterMissile();
                     this.jeu.getAth().majHUD();
+                    bonus = true;
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -47,9 +50,12 @@ public class VaisseauJoueur extends VaisseauControle {
 
             case "B":
                 this.ajouterBouclier();
+                bonus = true;
                 break;
         }
-        this.game().remove(o);
+        if (bonus) {
+            this.game().remove(o);
+        }
     }
 
     @Override
@@ -64,7 +70,7 @@ public class VaisseauJoueur extends VaisseauControle {
 
     @Override
     public void effect(Objet o) {
-        if (o.isFriend() && !o.toString().equals("T")) {
+        if (o.isFriend() && !o.toString().equals("T") && !o.toString().equals("VP")) {
             this.collisionBonus(o);
         } else if (o.isEnnemy()) {
             try {

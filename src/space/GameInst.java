@@ -30,16 +30,22 @@ public class GameInst extends Game{
     
     public GameInst() {
         super(1024, 768, "Space");
+       
     }
 
     @Override
     protected void createObjects() {
         //ajout vaisseau
+        
+  
         VaisseauJoueur v = new VaisseauJoueur(this, 30, this.height()-80);
         this._ath = new ATH(this,v);
         this.addKeyInteractiveObject(v);
         this.add(v);
         //test ajout météor
+         Vague va = new Vague(1);     
+         va.init(this);
+       
         
         BVaisseau1 bv1 = new BVaisseau1(this, this.getWidth()-200, this.getHeight()/2);
         this.add(bv1);

@@ -26,12 +26,12 @@ public class VaisseauProtege extends VaisseauControle {
 
     @Override
     public void effect(Objet o) {
-        if (o.isFriend() && !o.toString().equals("V")) {
+        if (o.isFriend() && !o.toString().equals("VJ")) {
             this.collisionBonus(o);
         } else {
             VaisseauJoueur v = new VaisseauJoueur(this.game(), this.getLeft(), this.getBottom() - 87);
-            this.game().remove(this);
             this.game().removeKeyListener(this);
+            this.game().remove(this);
 
             this.game().add(v);
             this.game().addKeyListener(v);
@@ -50,11 +50,13 @@ public class VaisseauProtege extends VaisseauControle {
 
     @Override
     public void collisionBonus(Objet o) {
+        boolean bonus = false;
         switch (o.toString()) {
             case "Mi":
                 try {
                     this.ajouterMissile();
                     this.jeu.getAth().majHUD();
+                    bonus = true;
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -63,14 +65,16 @@ public class VaisseauProtege extends VaisseauControle {
                 try {
                     this.ajouterVie();
                     this.jeu.getAth().majHUD();
+                    bonus = true;
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
                 break;
 
         }
-
-        this.game().remove(o);
+        if (bonus) {
+            this.game().remove(o);
+        }
     }
 
 }
