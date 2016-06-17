@@ -56,7 +56,7 @@ public class GameInst extends Game{
     @Override
     protected void drawBackground(Graphics g) {
         try {
-            Image img = ImageIO.read(new File("Images/fond.png"));
+            Image img = ImageIO.read(new File("fond.png"));
             g.drawImage(img, this.getX(), this.getY(), this.getWidth(), this.getHeight(), Color.white, this);
         } 
         catch (IOException ex) {
