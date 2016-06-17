@@ -27,16 +27,28 @@ public class Tir extends iut.ObjetTouchable{
     public void effect(Objet objet) {
         if(this.collision(objet)){
             if(objet.isEnnemy()){
-                this.game().remove(objet);
-                this.game().remove(this);
-                this.jeu.getEnnemi().remove(objet);
-                if(this.jeu.getEnnemi().isEmpty()){
-                    this.jeu.setNiveau(this.jeu.getNiveau()+1);
-                    Vague va = new Vague(this.jeu, this.jeu.getNiveau());
-                    this.jeu.setEnnemi(va.getElement());
+                this.supprimerEnnemi(objet);
+                if(this.aucunEnnemi()){
+                    this.nouvelleVague();
                 }
             }
         }
+    }
+    
+    public boolean aucunEnnemi(){
+        return this.jeu.getEnnemi().isEmpty();
+    }
+    
+    public void supprimerEnnemi(Objet o){
+        this.game().remove(o);
+        this.game().remove(this);
+        this.jeu.getEnnemi().remove(o);
+    }
+    
+    public void nouvelleVague(){
+        this.jeu.setNiveau(this.jeu.getNiveau()+1);
+        Vague va  = new Vague(this.jeu, this.jeu.getNiveau());
+        this.jeu.setEnnemi(va.getElement());
     }
 
     @Override
