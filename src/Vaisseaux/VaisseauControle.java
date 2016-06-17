@@ -18,16 +18,16 @@ import space.GameInst;
  *
  * @author Baptiste
  */
-public abstract class VaisseauControle extends Vaisseau implements KeyListener{
-    
+public abstract class VaisseauControle extends Vaisseau implements KeyListener {
+
     protected int missiles = 3;
     protected GameInst jeu;
-    
+
     public VaisseauControle(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
         this.jeu = (GameInst) g;
     }
-    
+
     @Override
     public void keyPressed(KeyEvent e) {
         //gestion des déplacements
@@ -59,7 +59,7 @@ public abstract class VaisseauControle extends Vaisseau implements KeyListener{
             }
         }
     }
-    
+
     @Override
     public void keyReleased(KeyEvent e) {
         int kC = e.getKeyCode();
@@ -76,8 +76,8 @@ public abstract class VaisseauControle extends Vaisseau implements KeyListener{
             this.Vy = 0;
         }
     }
-    
-        public void tirerMissile() throws Exception {
+
+    public void tirerMissile() throws Exception {
         if (!this.aucunMissile()) {
             TMissile tM = new TMissile(this.game(), this.getMiddleX() + 50, this.getMiddleY());
             this.game().add(tM);
@@ -103,22 +103,21 @@ public abstract class VaisseauControle extends Vaisseau implements KeyListener{
         }
 
     }
-    
-    public boolean mort(){
-        return this.vie <= 0;
-    }
-    
-    public void enleverVie() throws Exception{
-        if(mort()){
-            System.out.println("Le vaisseau est détruit.");
-            this.game().remove(this);
-            this.game().add(new Explo( this.game(), this.getLeft(), this.getBottom()-87));
-        }else{
-            this.vie--;
-            this.jeu.getAth().majHUD();
-        }
+
+    public boolean uneSeuleVie() {
+        return this.vie <= 1;
     }
 
+    public void enleverVie() throws Exception {
+        if (uneSeuleVie()) {
+            System.out.println("Le vaisseau est détruit.");
+            this.game().remove(this);
+            this.game().add(new Explo(this.game(), this.getLeft(), this.getBottom() - 87));
+        }
+        this.vie--;
+        this.jeu.getAth().majHUD();
+
+    }
 
     public void ajouterMissile() throws Exception {
         if (this.tropDeMissile()) {
@@ -138,7 +137,8 @@ public abstract class VaisseauControle extends Vaisseau implements KeyListener{
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
 
     public abstract void effect(Objet o);
 
@@ -161,7 +161,5 @@ public abstract class VaisseauControle extends Vaisseau implements KeyListener{
     public int getVie() {
         return vie;
     }
-    
-    
-    
+
 }
