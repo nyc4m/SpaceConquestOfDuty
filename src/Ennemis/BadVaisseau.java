@@ -13,7 +13,7 @@ import iut.Objet;
  *
  * @author Florian
  */
-public abstract class BadVaisseau extends iut.ObjetTouchable{
+public abstract class BadVaisseau extends Vaisseaux.VaisseauEnnemi{
 
     public BadVaisseau(Game g, String nom, int x, int y) {
         super(g, nom, x, y);
@@ -46,13 +46,6 @@ public abstract class BadVaisseau extends iut.ObjetTouchable{
     @Override
     public boolean isEnnemy() {
         return true;
-    }
-
-    @Override
-    public void effect(Objet objet) {
-        if("T".equals(objet.toString())){
-            System.out.println("contact tir");
-        }
     }
     
     

@@ -66,10 +66,10 @@ public class VaisseauJoueur extends VaisseauControle {
     public void effect(Objet o) {
         if (o.isFriend() && !o.toString().equals("T")) {
             this.collisionBonus(o);
-        }else{
-            try{
+        } else if (o.isEnnemy()) {
+            try {
                 this.enleverVie();
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
